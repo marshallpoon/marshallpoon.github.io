@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marshall Poon — Mechatronics Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:        #F4F6FA;
+    --bg2:       #FFFFFF;
+    --bg3:       #EAEeF5;
+    --border:    #D0D8E8;
+    --accent:    #0066CC;
+    --accent2:   #E8003A;
+    --accent3:   #00875A;
+    --text:      #0D1520;
+    --muted:     #4A5C78;
+    --mono:      'Space Mono', monospace;
+    --sans:      'Syne', sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── NOISE OVERLAY ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.15;
+  }
+
+  /* ── GRID BG ── */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(0,102,204,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,102,204,0.05) 1px, transparent 1px);
+    background-size: 48px 48px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ── TOP NAV ── */
+  .topnav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    height: 58px;
+    display: flex;
+    align-items: center;
+    padding: 0 3rem;
+    gap: 2rem;
+    background: rgba(244,246,250,0.97);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: var(--mono);
+    font-size: 0.9rem;
+    color: var(--accent);
+    letter-spacing: 0.12em;
+    text-decoration: none;
+    margin-right: 1rem;
+    white-space: nowrap;
+  }
+
+  .nav-links {
+    display: flex;
+    list-style: none;
+    gap: 0;
+    flex: 1;
+  }
+
+  .nav-links a {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0 1.4rem;
+    height: 58px;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .nav-links a:hover,
+  .nav-links a.active {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+
+  .nav-right {
+    display: flex;
+    gap: 1.2rem;
+    margin-left: auto;
+  }
+
+  .nav-icon {
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-icon:hover { color: var(--accent); }
+
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: var(--text);
+    margin-left: auto;
+  }
+
+  .mobile-menu {
+    display: none;
+    position: absolute;
+    top: 58px; left: 0; right: 0;
+    background: var(--bg2);
+    border-bottom: 1px solid var(--border);
+    list-style: none;
+    padding: 0.5rem 1.5rem 1rem;
+    flex-direction: column;
+  }
+
+  .mobile-menu.open { display: flex; }
+
+  .mobile-menu a {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.75rem 0;
+    display: block;
+    border-bottom: 1px solid var(--border);
+    transition: color 0.2s;
+  }
+
+  .mobile-menu li:last-child a { border-bottom: none; }
+  .mobile-menu a:hover { color: var(--accent); }
+
+  /* ── HERO ── */
+
+  #hero {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 7rem 3rem 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .hero-inner { max-width: 760px; }
+
+  .hero-tag {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--accent);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards 0.2s;
+  }
+
+  .hero-name {
+    font-family: var(--sans);
+    font-size: clamp(3.5rem, 8vw, 7rem);
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards 0.35s;
+  }
+
+  .hero-name span {
+    display: block;
+    background: linear-gradient(135deg, #0066CC 0%, #00875A 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-desc {
+    font-size: 1.1rem;
+    color: var(--muted);
+    max-width: 540px;
+    margin-bottom: 2.5rem;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards 0.5s;
+    line-height: 1.7;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards 0.65s;
+  }
+
+  .btn {
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.85rem 1.8rem;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: all 0.2s;
+    cursor: pointer;
+    border: none;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: var(--bg);
+    font-weight: 700;
+  }
+
+  .btn-primary:hover {
+    background: var(--accent3);
+    transform: translateY(-2px);
+  }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+  }
+
+  .btn-ghost:hover {
+    background: rgba(0,194,255,0.08);
+    transform: translateY(-2px);
+  }
+
+  .hero-stats {
+    position: absolute;
+    right: 3rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    opacity: 0;
+    animation: fadeIn 0.8s ease forwards 0.9s;
+  }
+
+  .stat {
+    text-align: right;
+    border-right: 2px solid var(--accent);
+    padding-right: 1.2rem;
+  }
+
+  .stat-num {
+    font-family: var(--mono);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent);
+    display: block;
+  }
+
+  .stat-label {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    color: var(--muted);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  /* ── SECTION COMMON ── */
+  section {
+    scroll-margin-top: 58px;
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 5rem 3.5rem;
+  }
+
+  .section-label {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--accent);
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 3rem;
+    line-height: 1.1;
+  }
+
+  .section-divider {
+    width: 100%;
+    height: 1px;
+    background: var(--border);
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── ABOUT ── */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .about-text p {
+    color: var(--muted);
+    margin-bottom: 1.2rem;
+    line-height: 1.8;
+    font-size: 1.05rem;
+  }
+
+  .about-text p strong { color: var(--text); }
+
+  .about-skills { display: flex; flex-direction: column; gap: 1.2rem; }
+
+  .skill-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .skill-header {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--mono);
+    font-size: 0.75rem;
+  }
+
+  .skill-name { color: var(--text); }
+  .skill-pct  { color: var(--accent); }
+
+  .skill-bar {
+    height: 2px;
+    background: var(--border);
+    border-radius: 99px;
+    overflow: hidden;
+  }
+
+  .skill-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent), var(--accent3));
+    border-radius: 99px;
+    width: 0;
+    transition: width 1.2s cubic-bezier(0.16,1,0.3,1);
+  }
+
+  /* ── PROJECTS ── */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .project-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 2rem;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .project-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--accent3));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+  }
+
+  .project-card:hover { border-color: rgba(0,194,255,0.3); transform: translateY(-4px); }
+  .project-card:hover::before { transform: scaleX(1); }
+
+  .project-tag {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    color: var(--accent2);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+  }
+
+  .project-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.01em;
+  }
+
+  .project-desc {
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+
+  .project-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tag {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    color: var(--accent3);
+    background: rgba(0,255,157,0.07);
+    border: 1px solid rgba(0,255,157,0.2);
+    padding: 0.25rem 0.6rem;
+    border-radius: 2px;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── PROJECT IMAGE ── */
+  .project-image {
+    width: calc(100% + 4rem);
+    margin: -2rem -2rem 1.5rem -2rem;
+    height: 200px;
+    overflow: hidden;
+    background: var(--bg3);
+    border-bottom: 1px solid var(--border);
+    position: relative;
+  }
+  .project-image img {
+    width: 100%; height: 100%;
+    object-fit: cover; opacity: 0.85;
+    transition: opacity 0.3s, transform 0.4s;
+  }
+  .project-card:hover .project-image img { opacity: 1; transform: scale(1.04); }
+  .project-image-placeholder {
+    width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--mono); font-size: 0.7rem; color: var(--border);
+    letter-spacing: 0.15em; text-transform: uppercase;
+    background: repeating-linear-gradient(45deg, var(--bg3), var(--bg3) 10px, var(--bg2) 10px, var(--bg2) 20px);
+  }
+
+  /* ── PAPERS ── */
+  .papers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem; margin-bottom: 3rem;
+  }
+  .paper-card {
+    background: var(--bg2); border: 1px solid var(--border);
+    border-radius: 4px; padding: 1.75rem;
+    display: flex; flex-direction: column; gap: 0.75rem;
+    transition: all 0.3s; position: relative; overflow: hidden;
+    text-decoration: none; color: inherit;
+  }
+  .paper-card::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, var(--accent2), var(--accent));
+    transform: scaleX(0); transform-origin: left; transition: transform 0.3s;
+  }
+  .paper-card:hover { border-color: rgba(255,59,92,0.3); transform: translateY(-3px); }
+  .paper-card:hover::after { transform: scaleX(1); }
+  .paper-icon {
+    width: 40px; height: 40px; background: rgba(255,59,92,0.1);
+    border: 1px solid rgba(255,59,92,0.25); border-radius: 4px;
+    display: flex; align-items: center; justify-content: center; font-size: 1.1rem;
+  }
+  .paper-type { font-family: var(--mono); font-size: 0.65rem; color: var(--accent2); letter-spacing: 0.15em; text-transform: uppercase; }
+  .paper-title { font-size: 1rem; font-weight: 700; letter-spacing: -0.01em; line-height: 1.3; }
+  .paper-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.6; flex: 1; }
+  .paper-meta {
+    font-family: var(--mono); font-size: 0.65rem; color: var(--muted);
+    letter-spacing: 0.08em; display: flex; justify-content: space-between;
+    align-items: center; border-top: 1px solid var(--border); padding-top: 0.75rem; margin-top: 0.25rem;
+  }
+  .paper-download { color: var(--accent); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; }
+
+  /* ── GALLERY ── */
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1rem;
+  }
+  .gallery-item {
+    aspect-ratio: 16/10; background: var(--bg3);
+    border: 1px solid var(--border); border-radius: 4px;
+    overflow: hidden; position: relative; cursor: pointer;
+  }
+  .gallery-item img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.4s, opacity 0.3s; opacity: 0.8;
+  }
+  .gallery-item:hover img { transform: scale(1.06); opacity: 1; }
+  .gallery-caption {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 0.75rem 1rem;
+    background: linear-gradient(transparent, rgba(13,21,32,0.85));
+    font-family: var(--mono); font-size: 0.65rem; color: var(--text);
+    letter-spacing: 0.08em; transform: translateY(100%); transition: transform 0.3s;
+  }
+  .gallery-item:hover .gallery-caption { transform: none; }
+  .gallery-placeholder {
+    width: 100%; height: 100%;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem;
+    font-family: var(--mono); font-size: 0.65rem; color: var(--border);
+    letter-spacing: 0.12em; text-transform: uppercase;
+    background: repeating-linear-gradient(-45deg, var(--bg3), var(--bg3) 8px, var(--bg2) 8px, var(--bg2) 16px);
+  }
+  .gallery-placeholder span { font-size: 1.5rem; opacity: 0.3; }
+  .lightbox {
+    display: none; position: fixed; inset: 0;
+    background: rgba(13,21,32,0.92); z-index: 500;
+    align-items: center; justify-content: center; backdrop-filter: blur(8px);
+  }
+  .lightbox.active { display: flex; }
+  .lightbox img { max-width: 90vw; max-height: 85vh; object-fit: contain; border: 1px solid var(--border); }
+  .lightbox-close {
+    position: absolute; top: 1.5rem; right: 1.5rem;
+    font-family: var(--mono); font-size: 0.8rem; color: var(--muted);
+    cursor: pointer; letter-spacing: 0.1em; background: none; border: none; transition: color 0.2s;
+  }
+  .lightbox-close:hover { color: var(--accent); }
+
+  /* ── EXPERIENCE ── */
+  .timeline { display: flex; flex-direction: column; gap: 0; }
+
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 2rem;
+    padding: 2.5rem 0;
+    border-bottom: 1px solid var(--border);
+    transition: background 0.2s;
+  }
+
+  .timeline-item:last-child { border-bottom: none; }
+
+  .tl-left { padding-top: 0.2rem; }
+
+  .tl-date {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    margin-bottom: 0.4rem;
+  }
+
+  .tl-org {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+
+  .tl-role {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.01em;
+  }
+
+  .tl-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .tl-bullets li {
+    font-size: 0.9rem;
+    color: var(--muted);
+    padding-left: 1rem;
+    position: relative;
+    line-height: 1.6;
+  }
+
+  .tl-bullets li::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+  }
+
+  /* ── EDUCATION ── */
+  .edu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .edu-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 2rem;
+  }
+
+  .edu-degree {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+    letter-spacing: -0.01em;
+  }
+
+  .edu-institution {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--accent);
+    margin-bottom: 0.3rem;
+  }
+
+  .edu-date {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--muted);
+    margin-bottom: 1rem;
+  }
+
+  .edu-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .edu-bullets li {
+    font-size: 0.85rem;
+    color: var(--muted);
+    padding-left: 1rem;
+    position: relative;
+    line-height: 1.5;
+  }
+
+  .edu-bullets li::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    color: var(--accent3);
+  }
+
+  /* ── CONTACT ── */
+  #contact { text-align: center; }
+
+  .contact-inner {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .contact-email {
+    font-family: var(--mono);
+    font-size: 1.1rem;
+    color: var(--accent);
+    margin-bottom: 2.5rem;
+    display: block;
+    text-decoration: none;
+  }
+
+  .contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 2rem 3rem;
+    border-top: 1px solid var(--border);
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .sidebar { display: none; }
+    .top-headings { display: none; }
+    .topbar { display: flex; }
+    body > *:not(.sidebar):not(.topbar):not(#lightbox):not(.cursor-dot):not(.cursor-ring) {
+      margin-left: 0;
+    }
+    section {
+    scroll-margin-top: 58px; padding: 4rem 1.5rem; }
+    #hero { padding: 5rem 1.5rem 4rem; }
+    .hero-stats { display: none; }
+    .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .timeline-item { grid-template-columns: 1fr; gap: 0.5rem; }
+  }
+
+  @media (max-width: 600px) {
+    .hero-name { font-size: 3rem; }
+  }
+
+  /* ── CURSOR DOT ── */
+  .cursor-dot {
+    width: 6px; height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.1s;
+  }
+
+  .cursor-ring {
+    width: 32px; height: 32px;
+    border: 1px solid rgba(0,194,255,0.4);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.15s, width 0.2s, height 0.2s;
+  }
+</style>
+</head>
+<body>
+
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- TOP NAV -->
+<nav class="topnav">
+  <a href="#hero" class="nav-logo">MP_</a>
+  <ul class="nav-links">
+    <li><a href="#about" data-section="about">About</a></li>
+    <li><a href="#projects" data-section="projects">Projects</a></li>
+    <li><a href="#education" data-section="education">Education</a></li>
+    <li><a href="#contact" data-section="contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="mailto:marshallpoon@hotmail.com" class="nav-icon">✉</a>
+    <a href="https://linkedin.com/in/marshall-poon" target="_blank" class="nav-icon">in</a>
+  </div>
+  <button class="menu-toggle" onclick="toggleMenu()" aria-label="Menu">☰</button>
+  <ul class="mobile-menu" id="mobileMenu">
+    <li><a href="#about" onclick="toggleMenu()">About</a></li>
+    <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
+    <li><a href="#education" onclick="toggleMenu()">Education</a></li>
+    <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <p class="hero-tag">// Mechatronics · Robotics · Autonomous Systems</p>
+    <h1 class="hero-name">
+      Marshall<br><span>Poon</span>
+    </h1>
+    <p class="hero-desc">
+      Master of Mechatronics Engineering from the University of Melbourne and ETH Zürich.
+      Building autonomous systems, SLAM pipelines, and defence-grade engineering solutions
+      across Melbourne, Berlin, and Zürich.
+    </p>
+    <div class="hero-cta">
+      <a href="#projects" class="btn btn-primary">View Projects</a>
+      <a href="https://linkedin.com/in/marshall-poon" target="_blank" class="btn btn-ghost">LinkedIn</a>
+      <a href="mailto:marshallpoon@hotmail.com" class="btn btn-ghost">Email</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat">
+      <span class="stat-num">4</span>
+      <span class="stat-label">Countries</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">8+</span>
+      <span class="stat-label">Projects</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">M.Eng</span>
+      <span class="stat-label">Mechatronics</span>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ABOUT -->
+<section id="about">
+  <p class="section-label reveal">// 01 — About</p>
+  <h2 class="section-title reveal">Engineer. Researcher.<br>Builder.</h2>
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <p>I'm a Mechatronics Engineer with a Master's from the <strong>University of Melbourne</strong> and a research semester at <strong>ETH Zürich</strong>, where I worked on SLAM optimisation and reinforcement learning for robotic locomotion.</p>
+      <p>My engineering background spans the full stack — from <strong>embedded C++ firmware</strong> and real-time control systems through to <strong>ROS2 simulation environments</strong>, CI/CD pipelines, and machine learning integration in robotic systems.</p>
+      <p>I've worked across space robotics in Melbourne, aerospace hardware in Berlin, computer vision research in Zürich, and energy systems at Tesla. The common thread is a preference for technically demanding, high-accountability work where the engineering decisions are real.</p>
+      <p>Australian citizen. Eligible for NV2 security clearance. Open to defence, robotics, and space opportunities globally.</p>
+    </div>
+    <div class="about-skills reveal">
+      <div class="skill-row">
+        <div class="skill-header"><span class="skill-name">C++ / Embedded Systems</span><span class="skill-pct">85%</span></div>
+        <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-header"><span class="skill-name">Python / ROS2</span><span class="skill-pct">90%</span></div>
+        <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-header"><span class="skill-name">SLAM / Perception</span><span class="skill-pct">80%</span></div>
+        <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-header"><span class="skill-name">Sensor Fusion / Control</span><span class="skill-pct">85%</span></div>
+        <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-header"><span class="skill-name">Gazebo / MuJoCo Simulation</span><span class="skill-pct">80%</span></div>
+        <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-header"><span class="skill-name">Linux / Docker / CI/CD</span><span class="skill-pct">88%</span></div>
+        <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-header"><span class="skill-name">MATLAB/Simulink</span><span class="skill-pct">78%</span></div>
+        <div class="skill-bar"><div class="skill-fill" data-width="78"></div></div>
+      </div>
+      <div class="skill-row">
+        <div class="skill-header"><span class="skill-name">SolidWorks / AutoCAD</span><span class="skill-pct">75%</span></div>
+        <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <p class="section-label reveal">// 02 — Projects</p>
+  <h2 class="section-title reveal">Selected Work</h2>
+  <div class="projects-grid">
+
+    <div class="project-card reveal">
+      <div class="project-image">
+        <img src="assets/images/wildgs-slam.jpg" alt="WildGS-SLAM visualisation" onerror="this.parentElement.innerHTML='<div class=\"project-image-placeholder\">[ add image: assets/images/wildgs-slam.jpg ]</div>'">
+      </div>
+      <p class="project-tag">SLAM · Perception · ETH Zürich</p>
+      <h3 class="project-title">WildGS-SLAM Optimisation</h3>
+      <p class="project-desc">Optimised a Gaussian Splatting SLAM algorithm for real-world robotic deployment in dynamic, unstructured environments. Focused on perception pipeline benchmarking, sensor data processing, and improving robustness against moving objects and degraded sensor conditions.</p>
+      <div class="project-stack">
+        <span class="tag">Python</span><span class="tag">C++</span><span class="tag">SLAM</span>
+        <span class="tag">3DGS</span><span class="tag">Computer Vision</span><span class="tag">Git</span>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-image">
+        <img src="assets/images/hexapod-sim.jpg" alt="Hexapod MuJoCo simulation" onerror="this.parentElement.innerHTML='<div class=\"project-image-placeholder\">[ add image: assets/images/hexapod-sim.jpg ]</div>'">
+      </div>
+      <p class="project-tag">RL · Motion Planning · ETH Zürich</p>
+      <h3 class="project-title">Hexapod RL Locomotion Controller</h3>
+      <p class="project-desc">Implemented reinforcement learning-based motion planning for a hexapod robot in MuJoCo. Developed reward functions, tuned physics parameters for sim-to-real transfer, and achieved stable locomotion policies under randomised terrain and perturbation conditions.</p>
+      <div class="project-stack">
+        <span class="tag">Python</span><span class="tag">C++</span><span class="tag">MuJoCo</span>
+        <span class="tag">Reinforcement Learning</span><span class="tag">Motion Planning</span>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-image">
+        <img src="assets/images/uwb-localisation.jpg" alt="UWB localisation system" onerror="this.parentElement.innerHTML='<div class=\"project-image-placeholder\">[ add image: assets/images/uwb-localisation.jpg ]</div>'">
+      </div>
+      <p class="project-tag">Capstone · Embedded · UoM</p>
+      <h3 class="project-title">Deployable Indoor Localisation System</h3>
+      <p class="project-desc">Designed and built a real-time indoor positioning system using Ultra-Wideband ranging. Implemented a Time Division Multiple Access protocol in C++ firmware for multi-node coordination, running on embedded hardware over SPI and I2C with sub-10cm accuracy.</p>
+      <div class="project-stack">
+        <span class="tag">C++</span><span class="tag">UWB</span><span class="tag">SPI</span>
+        <span class="tag">I2C</span><span class="tag">TDMA</span><span class="tag">Embedded</span>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-image">
+        <img src="assets/images/acrux2-adcs.jpg" alt="ACRUX-2 CubeSat ADCS" onerror="this.parentElement.innerHTML='<div class=\"project-image-placeholder\">[ add image: assets/images/acrux2-adcs.jpg ]</div>'">
+      </div>
+      <p class="project-tag">CubeSat · ADCS · Melbourne Space Program</p>
+      <h3 class="project-title">ACRUX-2 Attitude Control System</h3>
+      <p class="project-desc">Engineering Co-Lead for ADCS on the ACRUX-2 CubeSat. Designed reaction wheel hardware, developed attitude control algorithms with magnetorquer/magnetometer sensor fusion, and took end-to-end ownership from requirements through hardware integration and validation.</p>
+      <div class="project-stack">
+        <span class="tag">Python</span><span class="tag">C++</span><span class="tag">MATLAB/Simulink</span>
+        <span class="tag">Sensor Fusion</span><span class="tag">Systems Engineering</span>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-image">
+        <img src="assets/images/space-lab-rd.jpg" alt="Melbourne Space Lab R&D" onerror="this.parentElement.innerHTML='<div class=\"project-image-placeholder\">[ add image: assets/images/space-lab-rd.jpg ]</div>'">
+      </div>
+      <p class="project-tag">R&D · Export-Controlled · Space Lab</p>
+      <h3 class="project-title">Autonomous Instrumentation Platform</h3>
+      <p class="project-desc">Led a confidential, export-controlled full-lifecycle R&D project at the Melbourne Space Laboratory. Developed 10 modular Python instrumentation libraries, implemented CI/CD pipelines, designed communication protocols, and built a PostgreSQL database for large-volume test data on Linux.</p>
+      <div class="project-stack">
+        <span class="tag">Python</span><span class="tag">PostgreSQL</span><span class="tag">CI/CD</span>
+        <span class="tag">Linux</span><span class="tag">SCPI</span><span class="tag">Docker</span>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-image">
+        <img src="assets/images/ant61-ros-sim.jpg" alt="ANT61 ROS Gazebo simulation" onerror="this.parentElement.innerHTML='<div class=\"project-image-placeholder\">[ add image: assets/images/ant61-ros-sim.jpg ]</div>'">
+      </div>
+      <p class="project-tag">Robotics · ROS · ANT61</p>
+      <h3 class="project-title">CubeSat ROS2 Simulation Environment</h3>
+      <p class="project-desc">Developed ROS-based autonomous systems simulation for a CubeSat in Gazebo on a Linux/Docker/AWS stack. Wrote Python motion planning and control scripts for a robotic arm with Dynamixel motors. Represented ANT61 at AWS re:MARS Conference in the USA.</p>
+      <div class="project-stack">
+        <span class="tag">ROS</span><span class="tag">Gazebo</span><span class="tag">Python</span>
+        <span class="tag">Docker</span><span class="tag">AWS</span><span class="tag">Linux</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<div class="section-divider"></div>
+
+<!-- EDUCATION -->
+<section id="education">
+  <p class="section-label reveal">// 04 — Education</p>
+  <h2 class="section-title reveal">Academic Background</h2>
+  <div class="edu-grid">
+
+    <div class="edu-card reveal">
+      <h3 class="edu-degree">Exchange Semester</h3>
+      <p class="edu-institution">ETH Zürich</p>
+      <p class="edu-date">Feb 2025 — Jul 2025</p>
+      <ul class="edu-bullets">
+        <li>Faculty of Engineering & IT Travel Scholarship</li>
+        <li>WildGS-SLAM optimisation for robotic deployment</li>
+        <li>RL motion planning on hexapod (MuJoCo)</li>
+      </ul>
+    </div>
+
+    <div class="edu-card reveal">
+      <h3 class="edu-degree">Master of Mechatronics Engineering</h3>
+      <p class="edu-institution">University of Melbourne</p>
+      <p class="edu-date">Feb 2023 — Jul 2025</p>
+      <ul class="edu-bullets">
+        <li>Melbourne Global Scholars Award</li>
+        <li>Capstone: Deployable Indoor Localisation (UWB, C++, SPI/I2C)</li>
+        <li>Exchange semester at ETH Zürich</li>
+      </ul>
+    </div>
+
+    <div class="edu-card reveal">
+      <h3 class="edu-degree">Bachelor of Science — Mechatronics</h3>
+      <p class="edu-institution">University of Melbourne</p>
+      <p class="edu-date">Feb 2020 — Nov 2022</p>
+      <ul class="edu-bullets">
+        <li>Represented UoM and ANT61 at AWS re:MARS, USA</li>
+        <li>Active in Melbourne Space Program robotics</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <p class="section-label reveal" style="text-align:center">// 05 — Contact</p>
+    <h2 class="section-title reveal" style="text-align:center">Let's Build<br>Something.</h2>
+    <a href="mailto:marshallpoon@hotmail.com" class="contact-email reveal">marshallpoon@hotmail.com</a>
+    <div class="contact-links reveal">
+      <a href="https://linkedin.com/in/marshall-poon" target="_blank" class="btn btn-ghost">LinkedIn</a>
+      <a href="mailto:marshallpoon@hotmail.com" class="btn btn-primary">Get In Touch</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Marshall Poon — Built for GitHub Pages &nbsp;·&nbsp; marshallpoon.github.io</p>
+</footer>
+
+<script>
+  // Custom cursor
+  const dot  = document.getElementById('cursorDot');
+  const ring = document.getElementById('cursorRing');
+  let mx = 0, my = 0, rx = 0, ry = 0;
+
+  document.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    dot.style.left  = mx - 3 + 'px';
+    dot.style.top   = my - 3 + 'px';
+  });
+
+  (function animRing() {
+    rx += (mx - rx - 16) * 0.12;
+    ry += (my - ry - 16) * 0.12;
+    ring.style.left = rx + 'px';
+    ring.style.top  = ry + 'px';
+    requestAnimationFrame(animRing);
+  })();
+
+  document.querySelectorAll('a, button').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      ring.style.width = '48px'; ring.style.height = '48px';
+    });
+    el.addEventListener('mouseleave', () => {
+      ring.style.width = '32px'; ring.style.height = '32px';
+    });
+  });
+
+  // Scroll reveal
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 60);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Skill bars animate on reveal
+  const skillObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.querySelectorAll('.skill-fill').forEach(fill => {
+          fill.style.width = fill.dataset.width + '%';
+        });
+        skillObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  document.querySelectorAll('.about-skills').forEach(el => skillObserver.observe(el));
+
+  // Lightbox
+  function openLightbox(el) {
+    const img = el.querySelector('img');
+    if (!img) return;
+    document.getElementById('lightboxImg').src = img.src;
+    document.getElementById('lightbox').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+  // Folder structure hint in console
+  console.log('%c📁 Marshall Poon Portfolio', 'font-size:14px;font-weight:bold;color:#00C2FF');
+  console.log('%cAdd files to these paths to populate the site:', 'color:#6B849E');
+  console.log('%cassets/images/  → project images & gallery photos', 'color:#00FF9D');
+  console.log('%cassets/papers/  → PDF reports & documents', 'color:#00FF9D');
+
+
+  // Active nav tab on scroll
+  const sections = ['about', 'projects', 'education', 'contact'];
+  const navLinks = document.querySelectorAll('.nav-links a[data-section]');
+
+  function updateActiveLink() {
+    let current = sections[0];
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if (el && el.getBoundingClientRect().top <= 80) current = id;
+    });
+    navLinks.forEach(a => {
+      a.classList.toggle('active', a.dataset.section === current);
+    });
+  }
+
+  window.addEventListener('scroll', updateActiveLink, { passive: true });
+  updateActiveLink();
+
+  // Mobile menu toggle
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+
+    // Lightbox
+  function openLightbox(el) {
+    const img = el.querySelector('img');
+    if (!img) return;
+    document.getElementById('lightboxImg').src = img.src;
+    document.getElementById('lightbox').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+  // Folder structure hint in console
+  console.log('%c📁 Marshall Poon Portfolio', 'font-size:14px;font-weight:bold;color:#00C2FF');
+  console.log('%cAdd files to these paths to populate the site:', 'color:#6B849E');
+  console.log('%cassets/images/  → project images & gallery photos', 'color:#00FF9D');
+  console.log('%cassets/papers/  → PDF reports & documents', 'color:#00FF9D');
+
+
+  const sections = ['about', 'projects', 'education', 'contact'];
+
+
+</script>
+</body>
+</html>
