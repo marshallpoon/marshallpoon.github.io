@@ -1278,44 +1278,6 @@
       }
     }
 
-    /* ── PDF VIEWER ── */
-    .pdf-viewer-wrap {
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      overflow: hidden;
-      margin-top: 1.5rem;
-      grid-column: 1 / -1;
-    }
-
-    .pdf-viewer-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0.75rem 1.25rem;
-      background: var(--bg3);
-      border-bottom: 1px solid var(--border);
-      font-family: var(--mono);
-      font-size: 0.72rem;
-      color: var(--muted);
-      letter-spacing: 0.08em;
-    }
-
-    .pdf-close {
-      background: none;
-      border: none;
-      font-family: var(--mono);
-      font-size: 0.72rem;
-      color: var(--muted);
-      cursor: pointer;
-      transition: color 0.2s;
-      letter-spacing: 0.08em;
-    }
-
-    .pdf-close:hover {
-      color: var(--accent2);
-    }
-
     .pdf-iframe {
       width: 100%;
       height: 700px;
@@ -1326,6 +1288,39 @@
     @media (max-width: 768px) {
       .pdf-iframe {
         height: 400px;
+      }
+    }
+
+    /* ── EMBEDDED PDF VIEWER ── */
+    .embedded-pdf-viewer {
+      width: 100%;
+      margin-top: 1.25rem;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      background: var(--bg2);
+    }
+
+    .embedded-pdf-viewer iframe {
+      width: 100%;
+      height: 520px;
+      border: none;
+      display: block;
+      background: white;
+    }
+
+    /* Larger featured project */
+    .project-card--featured {
+      align-items: stretch;
+    }
+
+    .project-card--featured .project-card__body {
+      overflow: hidden;
+    }
+
+    @media (max-width: 768px) {
+      .embedded-pdf-viewer iframe {
+        height: 420px;
       }
     }
   </style>
@@ -1510,175 +1505,166 @@
 
       <!-- PROJECT 1: WildGS-SLAM — FEATURED FULL WIDTH -->
       <div class="project-card project-card--featured reveal">
+
+        <!-- LEFT SIDE: IMAGE -->
         <div class="project-image project-image--tall">
           <img src="assets/images/dynamic_removal.png" alt="WildGS-SLAM real-time deployment results"
-            style="display:block; width:100%; height:100%; object-fit:cover;">
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+
+          <div class="project-image-placeholder" style="display:none">
+            <span>📁</span> assets/images/dynamic_removal.png
+          </div>
         </div>
+
+        <!-- RIGHT SIDE: CONTENT + PDF -->
         <div class="project-card__body">
+
           <div class="project-card__meta">
             <p class="project-tag">SLAM · Computer Vision · ETH Zürich 2025</p>
             <span class="project-badge">Research Paper</span>
           </div>
+
           <h3 class="project-title">Real-time Deployment of WildGS-SLAM</h3>
-          <p class="project-desc">WildGS-SLAM is a monocular RGB Simultaneous Localisation and Mapping (SLAM) system
-            designed for dynamic environments, leveraging uncertainty-aware geometric mapping and multi-layer perceptron
-            (MLP) models. The original implementation by the authors suffered from low operational runtime and frame
-            rate. This project significantly accelerates the system through profiling, targeted optimisation, and
-            codebase restructuring — identifying bottlenecks in the pipeline and applying both algorithmic and
-            structural improvements to achieve real-time performance.</p>
+
+          <p class="project-desc">
+            WildGS-SLAM is a monocular RGB Simultaneous Localisation and Mapping (SLAM)
+            system designed for dynamic environments, leveraging uncertainty-aware
+            geometric mapping and multi-layer perceptron (MLP) models.
+
+            This project significantly accelerates the system through profiling,
+            targeted optimisation, and codebase restructuring — identifying bottlenecks
+            in the pipeline and applying both algorithmic and structural improvements
+            to achieve real-time performance.
+          </p>
+
           <div class="project-links">
-            <a href="assets/papers/wildgs_paper.pdf" target="_blank" class="project-link project-link--pdf">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-                <polyline points="14 2 14 8 20 8" />
-                <line x1="16" y1="13" x2="8" y2="13" />
-                <line x1="16" y1="17" x2="8" y2="17" />
-              </svg>
-              Read Paper
+
+            <a href="assets/papers/12060_WildGS_SLAM_Monocular_Ga.pdf" target="_blank"
+              class="project-link project-link--pdf">
+              Open Full Paper
             </a>
+
             <a href="https://github.com/B-enguin/WildGS-SLAM" target="_blank" class="project-link project-link--github">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                <path
-                  d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
-              </svg>
               View Code
             </a>
-            <button onclick="togglePDF()" class="project-link project-link--pdf" id="pdfToggleBtn">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="3" width="18" height="18" rx="2" />
-                <line x1="9" y1="9" x2="15" y2="9" />
-                <line x1="9" y1="12" x2="15" y2="12" />
-                <line x1="9" y1="15" x2="12" y2="15" />
-              </svg>
-              Preview Paper
-            </button>
+
           </div>
+
           <div class="project-stack">
             <span class="tag">Python</span>
             <span class="tag">C++</span>
             <span class="tag">SLAM</span>
             <span class="tag">3D Gaussian Splatting</span>
-            <span class="tag">MLP</span>
-            <span class="tag">Computer Vision</span>
-            <span class="tag">Linux</span>
-            <span class="tag">Git</span>
           </div>
-        </div>
-        <div class="pdf-viewer-wrap" id="pdfViewer" style="display:none;">
-          <div class="pdf-viewer-header">
-            <span>WildGS-SLAM — Research Paper</span>
-            <button onclick="togglePDF()" class="pdf-close">✕ Close</button>
-          </div>
-          <iframe src="assets/papers/wildgs_paper.pdf" class="pdf-iframe" title="WildGS-SLAM Research Paper">
-          </iframe>
-        </div>
-      </div>
 
-      <!-- PROJECT 2: Hexapod RL -->
-      <div class="project-card reveal">
-        <div class="project-image">
-          <img src="assets/images/hexapod-sim.jpg" alt="Hexapod robot MuJoCo reinforcement learning simulation"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-          <div class="project-image-placeholder" style="display:none">
-            <span>📁</span> assets/images/hexapod-sim.jpg
+          <!-- PROJECT 2: Hexapod RL -->
+          <div class="project-card reveal">
+            <div class="project-image">
+              <img src="assets/images/hexapod-sim.jpg" alt="Hexapod robot MuJoCo reinforcement learning simulation"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+              <div class="project-image-placeholder" style="display:none">
+                <span>📁</span> assets/images/hexapod-sim.jpg
+              </div>
+            </div>
+            <p class="project-tag">RL · Motion Planning · ETH Zürich</p>
+            <h3 class="project-title">Hexapod RL Locomotion Controller</h3>
+            <p class="project-desc">Implemented reinforcement learning-based motion planning for a hexapod robot in
+              MuJoCo.
+              Developed reward functions, tuned physics parameters for sim-to-real transfer, and achieved stable
+              locomotion
+              policies under randomised terrain and perturbation conditions.</p>
+            <div class="project-stack">
+              <span class="tag">Python</span><span class="tag">C++</span><span class="tag">MuJoCo</span>
+              <span class="tag">Reinforcement Learning</span><span class="tag">Motion Planning</span>
+            </div>
           </div>
-        </div>
-        <p class="project-tag">RL · Motion Planning · ETH Zürich</p>
-        <h3 class="project-title">Hexapod RL Locomotion Controller</h3>
-        <p class="project-desc">Implemented reinforcement learning-based motion planning for a hexapod robot in MuJoCo.
-          Developed reward functions, tuned physics parameters for sim-to-real transfer, and achieved stable locomotion
-          policies under randomised terrain and perturbation conditions.</p>
-        <div class="project-stack">
-          <span class="tag">Python</span><span class="tag">C++</span><span class="tag">MuJoCo</span>
-          <span class="tag">Reinforcement Learning</span><span class="tag">Motion Planning</span>
-        </div>
-      </div>
 
-      <!-- PROJECT 3: UWB Capstone -->
-      <div class="project-card reveal">
-        <div class="project-image">
-          <img src="assets/images/uwb-localisation.jpg" alt="UWB ultra-wideband indoor localisation system hardware"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-          <div class="project-image-placeholder" style="display:none">
-            <span>📁</span> assets/images/uwb-localisation.jpg
+          <!-- PROJECT 3: UWB Capstone -->
+          <div class="project-card reveal">
+            <div class="project-image">
+              <img src="assets/images/uwb-localisation.jpg" alt="UWB ultra-wideband indoor localisation system hardware"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+              <div class="project-image-placeholder" style="display:none">
+                <span>📁</span> assets/images/uwb-localisation.jpg
+              </div>
+            </div>
+            <p class="project-tag">Capstone · Embedded · UoM</p>
+            <h3 class="project-title">Deployable Indoor Localisation System</h3>
+            <p class="project-desc">Designed and built a real-time indoor positioning system using Ultra-Wideband
+              ranging.
+              Implemented a Time Division Multiple Access protocol in C++ firmware for multi-node coordination, running
+              on
+              embedded hardware over SPI and I2C with sub-10cm accuracy.</p>
+            <div class="project-stack">
+              <span class="tag">C++</span><span class="tag">UWB</span><span class="tag">SPI</span>
+              <span class="tag">I2C</span><span class="tag">TDMA</span><span class="tag">Embedded</span>
+            </div>
           </div>
-        </div>
-        <p class="project-tag">Capstone · Embedded · UoM</p>
-        <h3 class="project-title">Deployable Indoor Localisation System</h3>
-        <p class="project-desc">Designed and built a real-time indoor positioning system using Ultra-Wideband ranging.
-          Implemented a Time Division Multiple Access protocol in C++ firmware for multi-node coordination, running on
-          embedded hardware over SPI and I2C with sub-10cm accuracy.</p>
-        <div class="project-stack">
-          <span class="tag">C++</span><span class="tag">UWB</span><span class="tag">SPI</span>
-          <span class="tag">I2C</span><span class="tag">TDMA</span><span class="tag">Embedded</span>
-        </div>
-      </div>
 
-      <!-- PROJECT 4: ACRUX-2 -->
-      <div class="project-card reveal">
-        <div class="project-image">
-          <img src="assets/images/acrux2-adcs.jpg" alt="ACRUX-2 CubeSat reaction wheel and ADCS hardware"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-          <div class="project-image-placeholder" style="display:none">
-            <span>📁</span> assets/images/acrux2-adcs.jpg
+          <!-- PROJECT 4: ACRUX-2 -->
+          <div class="project-card reveal">
+            <div class="project-image">
+              <img src="assets/images/acrux2-adcs.jpg" alt="ACRUX-2 CubeSat reaction wheel and ADCS hardware"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+              <div class="project-image-placeholder" style="display:none">
+                <span>📁</span> assets/images/acrux2-adcs.jpg
+              </div>
+            </div>
+            <p class="project-tag">CubeSat · ADCS · Melbourne Space Program</p>
+            <h3 class="project-title">ACRUX-2 Attitude Control System</h3>
+            <p class="project-desc">Engineering Co-Lead for ADCS on the ACRUX-2 CubeSat. Designed reaction wheel
+              hardware,
+              developed attitude control algorithms with magnetorquer/magnetometer sensor fusion, and took end-to-end
+              ownership from requirements through hardware integration and validation.</p>
+            <div class="project-stack">
+              <span class="tag">Python</span><span class="tag">C++</span><span class="tag">MATLAB/Simulink</span>
+              <span class="tag">Sensor Fusion</span><span class="tag">Systems Engineering</span>
+            </div>
           </div>
-        </div>
-        <p class="project-tag">CubeSat · ADCS · Melbourne Space Program</p>
-        <h3 class="project-title">ACRUX-2 Attitude Control System</h3>
-        <p class="project-desc">Engineering Co-Lead for ADCS on the ACRUX-2 CubeSat. Designed reaction wheel hardware,
-          developed attitude control algorithms with magnetorquer/magnetometer sensor fusion, and took end-to-end
-          ownership from requirements through hardware integration and validation.</p>
-        <div class="project-stack">
-          <span class="tag">Python</span><span class="tag">C++</span><span class="tag">MATLAB/Simulink</span>
-          <span class="tag">Sensor Fusion</span><span class="tag">Systems Engineering</span>
-        </div>
-      </div>
 
-      <!-- PROJECT 5: Space Lab R&D -->
-      <div class="project-card reveal">
-        <div class="project-image">
-          <img src="assets/images/space-lab-rd.jpg" alt="Melbourne Space Laboratory instrumentation R&D"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-          <div class="project-image-placeholder" style="display:none">
-            <span>📁</span> assets/images/space-lab-rd.jpg
+          <!-- PROJECT 5: Space Lab R&D -->
+          <div class="project-card reveal">
+            <div class="project-image">
+              <img src="assets/images/space-lab-rd.jpg" alt="Melbourne Space Laboratory instrumentation R&D"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+              <div class="project-image-placeholder" style="display:none">
+                <span>📁</span> assets/images/space-lab-rd.jpg
+              </div>
+            </div>
+            <p class="project-tag">R&amp;D · Export-Controlled · Space Lab</p>
+            <h3 class="project-title">Autonomous Instrumentation Platform</h3>
+            <p class="project-desc">Led a confidential, export-controlled full-lifecycle R&D project at the Melbourne
+              Space
+              Laboratory. Developed 10 modular Python instrumentation libraries, implemented CI/CD pipelines, designed
+              communication protocols, and built a PostgreSQL database for large-volume test data on Linux.</p>
+            <div class="project-stack">
+              <span class="tag">Python</span><span class="tag">PostgreSQL</span><span class="tag">CI/CD</span>
+              <span class="tag">Linux</span><span class="tag">SCPI</span><span class="tag">Docker</span>
+            </div>
           </div>
-        </div>
-        <p class="project-tag">R&amp;D · Export-Controlled · Space Lab</p>
-        <h3 class="project-title">Autonomous Instrumentation Platform</h3>
-        <p class="project-desc">Led a confidential, export-controlled full-lifecycle R&D project at the Melbourne Space
-          Laboratory. Developed 10 modular Python instrumentation libraries, implemented CI/CD pipelines, designed
-          communication protocols, and built a PostgreSQL database for large-volume test data on Linux.</p>
-        <div class="project-stack">
-          <span class="tag">Python</span><span class="tag">PostgreSQL</span><span class="tag">CI/CD</span>
-          <span class="tag">Linux</span><span class="tag">SCPI</span><span class="tag">Docker</span>
-        </div>
-      </div>
 
-      <!-- PROJECT 6: ANT61 ROS -->
-      <div class="project-card reveal">
-        <div class="project-image">
-          <img src="assets/images/ant61-ros-sim.jpg" alt="ANT61 ROS Gazebo CubeSat simulation environment"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-          <div class="project-image-placeholder" style="display:none">
-            <span>📁</span> assets/images/ant61-ros-sim.jpg
+          <!-- PROJECT 6: ANT61 ROS -->
+          <div class="project-card reveal">
+            <div class="project-image">
+              <img src="assets/images/ant61-ros-sim.jpg" alt="ANT61 ROS Gazebo CubeSat simulation environment"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+              <div class="project-image-placeholder" style="display:none">
+                <span>📁</span> assets/images/ant61-ros-sim.jpg
+              </div>
+            </div>
+            <p class="project-tag">Robotics · ROS · ANT61</p>
+            <h3 class="project-title">CubeSat ROS Simulation Environment</h3>
+            <p class="project-desc">Developed ROS-based autonomous systems simulation for a CubeSat in Gazebo on a
+              Linux/Docker/AWS stack. Wrote Python motion planning and control scripts for a robotic arm with Dynamixel
+              motors. Represented ANT61 at AWS re:MARS Conference in the USA.</p>
+            <div class="project-stack">
+              <span class="tag">ROS</span><span class="tag">Gazebo</span><span class="tag">Python</span>
+              <span class="tag">Docker</span><span class="tag">AWS</span><span class="tag">Linux</span>
+            </div>
           </div>
-        </div>
-        <p class="project-tag">Robotics · ROS · ANT61</p>
-        <h3 class="project-title">CubeSat ROS Simulation Environment</h3>
-        <p class="project-desc">Developed ROS-based autonomous systems simulation for a CubeSat in Gazebo on a
-          Linux/Docker/AWS stack. Wrote Python motion planning and control scripts for a robotic arm with Dynamixel
-          motors. Represented ANT61 at AWS re:MARS Conference in the USA.</p>
-        <div class="project-stack">
-          <span class="tag">ROS</span><span class="tag">Gazebo</span><span class="tag">Python</span>
-          <span class="tag">Docker</span><span class="tag">AWS</span><span class="tag">Linux</span>
-        </div>
-      </div>
 
-    </div>
+        </div>
   </section>
-
 
   <div class="section-divider"></div>
 
@@ -1800,15 +1786,6 @@
   </footer>
 
   <script>
-    // Toggle PDF function
-    function togglePDF() {
-      const viewer = document.getElementById('pdfViewer');
-      const btn = document.getElementById('pdfToggleBtn');
-      const isHidden = viewer.style.display === 'none';
-      viewer.style.display = isHidden ? 'block' : 'none';
-      btn.style.background = isHidden ? 'rgba(192,105,74,0.15)' : '';
-      if (isHidden) viewer.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
     // Custom cursor
     const dot = document.getElementById('cursorDot');
     const ring = document.getElementById('cursorRing');
