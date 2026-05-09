@@ -1,131 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Marshall Poon — Mechatronics Engineer</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marshall Poon — Mechatronics Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<div class="cursor-dot" id="cursorDot"></div>
-<div class="cursor-ring" id="cursorRing"></div>
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
 
-<!-- TOP NAV -->
-<nav class="topnav">
-  <a href="#hero" class="nav-logo">MP_</a>
-  <ul class="nav-links">
-    <li><a href="#about" data-section="about">About</a></li>
-    <li><a href="#projects" data-section="projects">Projects</a></li>
-    <li><a href="#education" data-section="education">Education</a></li>
-    <li><a href="#contact" data-section="contact">Contact</a></li>
-  </ul>
-  <div class="nav-right">
-    <a href="mailto:marshallpoon@hotmail.com" class="nav-icon">✉</a>
-    <a href="https://linkedin.com/in/marshall-poon" target="_blank" class="nav-icon">in</a>
-  </div>
-  <button class="menu-toggle" onclick="toggleMenu()" aria-label="Menu">☰</button>
-  <ul class="mobile-menu" id="mobileMenu">
-    <li><a href="#about" onclick="toggleMenu()">About</a></li>
-    <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
-    <li><a href="#education" onclick="toggleMenu()">Education</a></li>
-    <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
-  </ul>
-</nav>
+  <!-- TOP NAV -->
+  <nav class="topnav">
+    <a href="#hero" class="nav-logo">MP_</a>
+    <ul class="nav-links">
+      <li><a href="#about" data-section="about">About</a></li>
+      <li><a href="#projects" data-section="projects">Projects</a></li>
+      <li><a href="#education" data-section="education">Education</a></li>
+      <li><a href="#contact" data-section="contact">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="mailto:marshallpoon@hotmail.com" class="nav-icon">✉</a>
+      <a href="https://linkedin.com/in/marshall-poon" target="_blank" class="nav-icon">in</a>
+    </div>
+    <button class="menu-toggle" onclick="toggleMenu()" aria-label="Menu">☰</button>
+    <ul class="mobile-menu" id="mobileMenu">
+      <li><a href="#about" onclick="toggleMenu()">About</a></li>
+      <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
+      <li><a href="#education" onclick="toggleMenu()">Education</a></li>
+      <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+    </ul>
+  </nav>
 
-<!-- HERO -->
-<section id="hero">
-  <div class="hero-inner">
-    <p class="hero-tag">Mechatronics · Robotics · Autonomous Systems</p>
-    <h1 class="hero-name">
-      Marshall<br><span>Poon</span>
-    </h1>
-    <p class="hero-desc">
-      Master of Mechatronics Engineering from the University of Melbourne and ETH Zürich.
-      Building autonomous systems, SLAM pipelines, and defence-grade engineering solutions
-      across Melbourne, Berlin, and Zürich.
-    </p>
-    <div class="hero-cta">
-      <a href="#projects" class="btn btn-primary">View Projects</a>
-      <a href="https://linkedin.com/in/marshall-poon" target="_blank" class="btn btn-ghost">LinkedIn</a>
-      <a href="mailto:marshallpoon@hotmail.com" class="btn btn-ghost">Email</a>
-    </div>
-  </div>
-  <div class="hero-stats">
-    <div class="stat">
-      <span class="stat-num">4</span>
-      <span class="stat-label">Countries</span>
-    </div>
-    <div class="stat">
-      <span class="stat-num">8+</span>
-      <span class="stat-label">Projects</span>
-    </div>
-    <div class="stat">
-      <span class="stat-num">M.Eng</span>
-      <span class="stat-label">Mechatronics</span>
-    </div>
-  </div>
-</section>
-
-<div class="section-divider"></div>
-
-<!-- ABOUT -->
-<section id="about">
-  <p class="section-label reveal">// 01 — About</p>
-  <h2 class="section-title reveal">Engineer. Researcher.<br>Builder.</h2>
-  <div class="about-grid">
-    <div class="about-text reveal">
-      <p>I'm a Mechatronics Engineer with a Master's from the <strong>University of Melbourne</strong> and a research semester at <strong>ETH Zürich</strong>, where I worked on SLAM optimisation and reinforcement learning for robotic locomotion.</p>
-      <p>My engineering background spans the full stack — from <strong>embedded C++ firmware</strong> and real-time control systems through to <strong>ROS2 simulation environments</strong>, CI/CD pipelines, and machine learning integration in robotic systems.</p>
-      <p>I've worked across space robotics in Melbourne, aerospace hardware in Berlin, computer vision research in Zürich, and energy systems at Tesla. The common thread is a preference for technically demanding, high-accountability work where the engineering decisions are real.</p>
-      <p>Australian citizen. Eligible for NV2 security clearance. Open to defence, robotics, and space opportunities globally.</p>
-    </div>
-    <div class="about-skills reveal">
-      <div class="skill-row">
-        <div class="skill-header"><span class="skill-name">C++ / Embedded Systems</span><span class="skill-pct">85%</span></div>
-        <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
-      </div>
-      <div class="skill-row">
-        <div class="skill-header"><span class="skill-name">Python / ROS2</span><span class="skill-pct">90%</span></div>
-        <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
-      </div>
-      <div class="skill-row">
-        <div class="skill-header"><span class="skill-name">SLAM / Perception</span><span class="skill-pct">80%</span></div>
-        <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
-      </div>
-      <div class="skill-row">
-        <div class="skill-header"><span class="skill-name">Sensor Fusion / Control</span><span class="skill-pct">85%</span></div>
-        <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
-      </div>
-      <div class="skill-row">
-        <div class="skill-header"><span class="skill-name">Gazebo / MuJoCo Simulation</span><span class="skill-pct">80%</span></div>
-        <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
-      </div>
-      <div class="skill-row">
-        <div class="skill-header"><span class="skill-name">Linux / Docker / CI/CD</span><span class="skill-pct">88%</span></div>
-        <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
-      </div>
-      <div class="skill-row">
-        <div class="skill-header"><span class="skill-name">MATLAB/Simulink</span><span class="skill-pct">78%</span></div>
-        <div class="skill-bar"><div class="skill-fill" data-width="78"></div></div>
-      </div>
-      <div class="skill-row">
-        <div class="skill-header"><span class="skill-name">SolidWorks / AutoCAD</span><span class="skill-pct">75%</span></div>
-        <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-inner">
+      <p class="hero-tag">Mechatronics · Robotics · Autonomous Systems</p>
+      <h1 class="hero-name">
+        Marshall<br><span>Poon</span>
+      </h1>
+      <p class="hero-desc">
+        Master of Mechatronics Engineering from the University of Melbourne and ETH Zürich.
+        Building autonomous systems, SLAM pipelines, and defence-grade engineering solutions
+        across Melbourne, Berlin, and Zürich.
+      </p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-primary">View Projects</a>
+        <a href="https://linkedin.com/in/marshall-poon" target="_blank" class="btn btn-ghost">LinkedIn</a>
+        <a href="mailto:marshallpoon@hotmail.com" class="btn btn-ghost">Email</a>
       </div>
     </div>
-  </div>
-</section>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-num">4</span>
+        <span class="stat-label">Countries</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">8+</span>
+        <span class="stat-label">Projects</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">M.Eng</span>
+        <span class="stat-label">Mechatronics</span>
+      </div>
+    </div>
+  </section>
 
-<div class="section-divider"></div>
+  <div class="section-divider"></div>
 
-<!-- PROJECTS -->
-<section id="projects">
-  <p class="section-label reveal">// 02 — Projects</p>
-  <h2 class="section-title reveal">Selected Work</h2>
-  <!-- 
+  <!-- ABOUT -->
+  <section id="about">
+    <p class="section-label reveal">// 01 — About</p>
+    <h2 class="section-title reveal">Engineer. Researcher.<br>Builder.</h2>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>I'm a Mechatronics Engineer with a Master's from the <strong>University of Melbourne</strong> and a research
+          semester at <strong>ETH Zürich</strong>, where I worked on SLAM optimisation and reinforcement learning for
+          robotic locomotion.</p>
+        <p>My engineering background spans the full stack — from <strong>embedded C++ firmware</strong> and real-time
+          control systems through to <strong>ROS2 simulation environments</strong>, CI/CD pipelines, and machine
+          learning integration in robotic systems.</p>
+        <p>I've worked across space robotics in Melbourne, aerospace hardware in Berlin, computer vision research in
+          Zürich, and energy systems at Tesla. The common thread is a preference for technically demanding,
+          high-accountability work where the engineering decisions are real.</p>
+        <p>Australian citizen. Eligible for NV2 security clearance. Open to defence, robotics, and space opportunities
+          globally.</p>
+      </div>
+      <div class="about-skills reveal">
+        <div class="skill-row">
+          <div class="skill-header"><span class="skill-name">C++ / Embedded Systems</span><span
+              class="skill-pct">85%</span></div>
+          <div class="skill-bar">
+            <div class="skill-fill" data-width="85"></div>
+          </div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-header"><span class="skill-name">Python / ROS2</span><span class="skill-pct">90%</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-fill" data-width="90"></div>
+          </div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-header"><span class="skill-name">SLAM / Perception</span><span class="skill-pct">80%</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-fill" data-width="80"></div>
+          </div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-header"><span class="skill-name">Sensor Fusion / Control</span><span
+              class="skill-pct">85%</span></div>
+          <div class="skill-bar">
+            <div class="skill-fill" data-width="85"></div>
+          </div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-header"><span class="skill-name">Gazebo / MuJoCo Simulation</span><span
+              class="skill-pct">80%</span></div>
+          <div class="skill-bar">
+            <div class="skill-fill" data-width="80"></div>
+          </div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-header"><span class="skill-name">Linux / Docker / CI/CD</span><span
+              class="skill-pct">88%</span></div>
+          <div class="skill-bar">
+            <div class="skill-fill" data-width="88"></div>
+          </div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-header"><span class="skill-name">MATLAB/Simulink</span><span class="skill-pct">78%</span>
+          </div>
+          <div class="skill-bar">
+            <div class="skill-fill" data-width="78"></div>
+          </div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-header"><span class="skill-name">SolidWorks / AutoCAD</span><span
+              class="skill-pct">75%</span></div>
+          <div class="skill-bar">
+            <div class="skill-fill" data-width="75"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <p class="section-label reveal">// 02 — Projects</p>
+    <h2 class="section-title reveal">Selected Work</h2>
+    <!-- 
     PROJECT IMAGES — FILE STRUCTURE
     ================================
     Place your images in the following paths relative to index.html:
@@ -142,9 +177,9 @@
     Recommended size: 800×500px (16:10 ratio), JPG or PNG.
     If an image is missing, a styled placeholder shows automatically.
   -->
-  <div class="projects-grid">
+    <div class="projects-grid">
 
-    <!--
+      <!--
       FILE STRUCTURE FOR WILDGS-SLAM PROJECT
       =======================================
       assets/
@@ -154,388 +189,406 @@
           └── wildgs-slam-paper.pdf      ← your research paper PDF
     -->
 
-    <!-- PROJECT 1: WildGS-SLAM — FEATURED FULL WIDTH -->
-    <div class="project-card project-card--featured reveal">
-      <div class="project-image project-image--tall">
-        <img
-          src="assets/images/wildgs-slam-results.jpg"
-          alt="WildGS-SLAM real-time deployment results"
-          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-        <div class="project-image-placeholder" style="display:none">
-          <span>📁</span> assets/images/wildgs-slam-results.jpg
+      <!-- PROJECT 1: WildGS-SLAM — FEATURED FULL WIDTH -->
+      <div class="project-card project-card--featured reveal">
+        <div class="project-image project-image--tall">
+          <img src="assets/images/wildgs-slam-results.jpg" alt="WildGS-SLAM real-time deployment results"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+          <div class="project-image-placeholder" style="display:none">
+            <span>📁</span> assets/images/dynamic_removal.png
+          </div>
+        </div>
+        <div class="project-card__body">
+          <div class="project-card__meta">
+            <p class="project-tag">SLAM · Computer Vision · ETH Zürich 2025</p>
+            <span class="project-badge">Research Paper</span>
+          </div>
+          <h3 class="project-title">Real-time Deployment of WildGS-SLAM</h3>
+          <p class="project-desc">WildGS-SLAM is a monocular RGB Simultaneous Localisation and Mapping (SLAM) system
+            designed for dynamic environments, leveraging uncertainty-aware geometric mapping and multi-layer perceptron
+            (MLP) models. The original implementation by the authors suffered from low operational runtime and frame
+            rate. This project significantly accelerates the system through profiling, targeted optimisation, and
+            codebase restructuring — identifying bottlenecks in the pipeline and applying both algorithmic and
+            structural improvements to achieve real-time performance.</p>
+          <div class="project-links">
+            <a href="assets/papers/12060_WildGS_SLAM_Monocular_Ga.pdf" target="_blank"
+              class="project-link project-link--pdf">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                <polyline points="14 2 14 8 20 8" />
+                <line x1="16" y1="13" x2="8" y2="13" />
+                <line x1="16" y1="17" x2="8" y2="17" />
+              </svg>
+              Read Paper
+            </a>
+            <a href="https://github.com/B-enguin/WildGS-SLAM" target="_blank" class="project-link project-link--github">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
+              </svg>
+              View Code
+            </a>
+          </div>
+          <div class="project-stack">
+            <span class="tag">Python</span>
+            <span class="tag">C++</span>
+            <span class="tag">SLAM</span>
+            <span class="tag">3D Gaussian Splatting</span>
+            <span class="tag">MLP</span>
+            <span class="tag">Computer Vision</span>
+            <span class="tag">Linux</span>
+            <span class="tag">Git</span>
+          </div>
         </div>
       </div>
-      <div class="project-card__body">
-        <div class="project-card__meta">
-          <p class="project-tag">SLAM · Computer Vision · ETH Zürich 2025</p>
-          <span class="project-badge">Research Paper</span>
+      <!-- PROJECT 2: Hexapod RL -->
+      <div class="project-card reveal">
+        <div class="project-image">
+          <img src="assets/images/hexapod-sim.jpg" alt="Hexapod robot MuJoCo reinforcement learning simulation"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+          <div class="project-image-placeholder" style="display:none">
+            <span>📁</span> assets/images/hexapod-sim.jpg
+          </div>
         </div>
-        <h3 class="project-title">Real-time Deployment of WildGS-SLAM</h3>
-        <p class="project-desc">WildGS-SLAM is a monocular RGB Simultaneous Localisation and Mapping (SLAM) system designed for dynamic environments, leveraging uncertainty-aware geometric mapping and multi-layer perceptron (MLP) models. The original implementation by the authors suffered from low operational runtime and frame rate. This project significantly accelerates the system through profiling, targeted optimisation, and codebase restructuring — identifying bottlenecks in the pipeline and applying both algorithmic and structural improvements to achieve real-time performance.</p>
-        <div class="project-links">
-          <a href="assets/papers/wildgs-slam-paper.pdf" target="_blank" class="project-link project-link--pdf">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-            Read Paper
-          </a>
-          <a href="https://github.com/B-enguin/WildGS-SLAM" target="_blank" class="project-link project-link--github">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-            View Code
-          </a>
-        </div>
+        <p class="project-tag">RL · Motion Planning · ETH Zürich</p>
+        <h3 class="project-title">Hexapod RL Locomotion Controller</h3>
+        <p class="project-desc">Implemented reinforcement learning-based motion planning for a hexapod robot in MuJoCo.
+          Developed reward functions, tuned physics parameters for sim-to-real transfer, and achieved stable locomotion
+          policies under randomised terrain and perturbation conditions.</p>
         <div class="project-stack">
-          <span class="tag">Python</span>
-          <span class="tag">C++</span>
-          <span class="tag">SLAM</span>
-          <span class="tag">3D Gaussian Splatting</span>
-          <span class="tag">MLP</span>
-          <span class="tag">Computer Vision</span>
-          <span class="tag">Linux</span>
-          <span class="tag">Git</span>
+          <span class="tag">Python</span><span class="tag">C++</span><span class="tag">MuJoCo</span>
+          <span class="tag">Reinforcement Learning</span><span class="tag">Motion Planning</span>
         </div>
       </div>
-    </div>
-    <!-- PROJECT 2: Hexapod RL -->
-    <div class="project-card reveal">
-      <div class="project-image">
-        <img
-          src="assets/images/hexapod-sim.jpg"
-          alt="Hexapod robot MuJoCo reinforcement learning simulation"
-          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-        <div class="project-image-placeholder" style="display:none">
-          <span>📁</span> assets/images/hexapod-sim.jpg
+
+      <!-- PROJECT 3: UWB Capstone -->
+      <div class="project-card reveal">
+        <div class="project-image">
+          <img src="assets/images/uwb-localisation.jpg" alt="UWB ultra-wideband indoor localisation system hardware"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+          <div class="project-image-placeholder" style="display:none">
+            <span>📁</span> assets/images/uwb-localisation.jpg
+          </div>
+        </div>
+        <p class="project-tag">Capstone · Embedded · UoM</p>
+        <h3 class="project-title">Deployable Indoor Localisation System</h3>
+        <p class="project-desc">Designed and built a real-time indoor positioning system using Ultra-Wideband ranging.
+          Implemented a Time Division Multiple Access protocol in C++ firmware for multi-node coordination, running on
+          embedded hardware over SPI and I2C with sub-10cm accuracy.</p>
+        <div class="project-stack">
+          <span class="tag">C++</span><span class="tag">UWB</span><span class="tag">SPI</span>
+          <span class="tag">I2C</span><span class="tag">TDMA</span><span class="tag">Embedded</span>
         </div>
       </div>
-      <p class="project-tag">RL · Motion Planning · ETH Zürich</p>
-      <h3 class="project-title">Hexapod RL Locomotion Controller</h3>
-      <p class="project-desc">Implemented reinforcement learning-based motion planning for a hexapod robot in MuJoCo. Developed reward functions, tuned physics parameters for sim-to-real transfer, and achieved stable locomotion policies under randomised terrain and perturbation conditions.</p>
-      <div class="project-stack">
-        <span class="tag">Python</span><span class="tag">C++</span><span class="tag">MuJoCo</span>
-        <span class="tag">Reinforcement Learning</span><span class="tag">Motion Planning</span>
-      </div>
-    </div>
 
-    <!-- PROJECT 3: UWB Capstone -->
-    <div class="project-card reveal">
-      <div class="project-image">
-        <img
-          src="assets/images/uwb-localisation.jpg"
-          alt="UWB ultra-wideband indoor localisation system hardware"
-          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-        <div class="project-image-placeholder" style="display:none">
-          <span>📁</span> assets/images/uwb-localisation.jpg
+      <!-- PROJECT 4: ACRUX-2 -->
+      <div class="project-card reveal">
+        <div class="project-image">
+          <img src="assets/images/acrux2-adcs.jpg" alt="ACRUX-2 CubeSat reaction wheel and ADCS hardware"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+          <div class="project-image-placeholder" style="display:none">
+            <span>📁</span> assets/images/acrux2-adcs.jpg
+          </div>
+        </div>
+        <p class="project-tag">CubeSat · ADCS · Melbourne Space Program</p>
+        <h3 class="project-title">ACRUX-2 Attitude Control System</h3>
+        <p class="project-desc">Engineering Co-Lead for ADCS on the ACRUX-2 CubeSat. Designed reaction wheel hardware,
+          developed attitude control algorithms with magnetorquer/magnetometer sensor fusion, and took end-to-end
+          ownership from requirements through hardware integration and validation.</p>
+        <div class="project-stack">
+          <span class="tag">Python</span><span class="tag">C++</span><span class="tag">MATLAB/Simulink</span>
+          <span class="tag">Sensor Fusion</span><span class="tag">Systems Engineering</span>
         </div>
       </div>
-      <p class="project-tag">Capstone · Embedded · UoM</p>
-      <h3 class="project-title">Deployable Indoor Localisation System</h3>
-      <p class="project-desc">Designed and built a real-time indoor positioning system using Ultra-Wideband ranging. Implemented a Time Division Multiple Access protocol in C++ firmware for multi-node coordination, running on embedded hardware over SPI and I2C with sub-10cm accuracy.</p>
-      <div class="project-stack">
-        <span class="tag">C++</span><span class="tag">UWB</span><span class="tag">SPI</span>
-        <span class="tag">I2C</span><span class="tag">TDMA</span><span class="tag">Embedded</span>
-      </div>
-    </div>
 
-    <!-- PROJECT 4: ACRUX-2 -->
-    <div class="project-card reveal">
-      <div class="project-image">
-        <img
-          src="assets/images/acrux2-adcs.jpg"
-          alt="ACRUX-2 CubeSat reaction wheel and ADCS hardware"
-          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-        <div class="project-image-placeholder" style="display:none">
-          <span>📁</span> assets/images/acrux2-adcs.jpg
+      <!-- PROJECT 5: Space Lab R&D -->
+      <div class="project-card reveal">
+        <div class="project-image">
+          <img src="assets/images/space-lab-rd.jpg" alt="Melbourne Space Laboratory instrumentation R&D"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+          <div class="project-image-placeholder" style="display:none">
+            <span>📁</span> assets/images/space-lab-rd.jpg
+          </div>
+        </div>
+        <p class="project-tag">R&amp;D · Export-Controlled · Space Lab</p>
+        <h3 class="project-title">Autonomous Instrumentation Platform</h3>
+        <p class="project-desc">Led a confidential, export-controlled full-lifecycle R&D project at the Melbourne Space
+          Laboratory. Developed 10 modular Python instrumentation libraries, implemented CI/CD pipelines, designed
+          communication protocols, and built a PostgreSQL database for large-volume test data on Linux.</p>
+        <div class="project-stack">
+          <span class="tag">Python</span><span class="tag">PostgreSQL</span><span class="tag">CI/CD</span>
+          <span class="tag">Linux</span><span class="tag">SCPI</span><span class="tag">Docker</span>
         </div>
       </div>
-      <p class="project-tag">CubeSat · ADCS · Melbourne Space Program</p>
-      <h3 class="project-title">ACRUX-2 Attitude Control System</h3>
-      <p class="project-desc">Engineering Co-Lead for ADCS on the ACRUX-2 CubeSat. Designed reaction wheel hardware, developed attitude control algorithms with magnetorquer/magnetometer sensor fusion, and took end-to-end ownership from requirements through hardware integration and validation.</p>
-      <div class="project-stack">
-        <span class="tag">Python</span><span class="tag">C++</span><span class="tag">MATLAB/Simulink</span>
-        <span class="tag">Sensor Fusion</span><span class="tag">Systems Engineering</span>
-      </div>
-    </div>
 
-    <!-- PROJECT 5: Space Lab R&D -->
-    <div class="project-card reveal">
-      <div class="project-image">
-        <img
-          src="assets/images/space-lab-rd.jpg"
-          alt="Melbourne Space Laboratory instrumentation R&D"
-          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-        <div class="project-image-placeholder" style="display:none">
-          <span>📁</span> assets/images/space-lab-rd.jpg
+      <!-- PROJECT 6: ANT61 ROS -->
+      <div class="project-card reveal">
+        <div class="project-image">
+          <img src="assets/images/ant61-ros-sim.jpg" alt="ANT61 ROS Gazebo CubeSat simulation environment"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+          <div class="project-image-placeholder" style="display:none">
+            <span>📁</span> assets/images/ant61-ros-sim.jpg
+          </div>
+        </div>
+        <p class="project-tag">Robotics · ROS · ANT61</p>
+        <h3 class="project-title">CubeSat ROS Simulation Environment</h3>
+        <p class="project-desc">Developed ROS-based autonomous systems simulation for a CubeSat in Gazebo on a
+          Linux/Docker/AWS stack. Wrote Python motion planning and control scripts for a robotic arm with Dynamixel
+          motors. Represented ANT61 at AWS re:MARS Conference in the USA.</p>
+        <div class="project-stack">
+          <span class="tag">ROS</span><span class="tag">Gazebo</span><span class="tag">Python</span>
+          <span class="tag">Docker</span><span class="tag">AWS</span><span class="tag">Linux</span>
         </div>
       </div>
-      <p class="project-tag">R&amp;D · Export-Controlled · Space Lab</p>
-      <h3 class="project-title">Autonomous Instrumentation Platform</h3>
-      <p class="project-desc">Led a confidential, export-controlled full-lifecycle R&D project at the Melbourne Space Laboratory. Developed 10 modular Python instrumentation libraries, implemented CI/CD pipelines, designed communication protocols, and built a PostgreSQL database for large-volume test data on Linux.</p>
-      <div class="project-stack">
-        <span class="tag">Python</span><span class="tag">PostgreSQL</span><span class="tag">CI/CD</span>
-        <span class="tag">Linux</span><span class="tag">SCPI</span><span class="tag">Docker</span>
-      </div>
-    </div>
 
-    <!-- PROJECT 6: ANT61 ROS -->
-    <div class="project-card reveal">
-      <div class="project-image">
-        <img
-          src="assets/images/ant61-ros-sim.jpg"
-          alt="ANT61 ROS Gazebo CubeSat simulation environment"
-          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-        <div class="project-image-placeholder" style="display:none">
-          <span>📁</span> assets/images/ant61-ros-sim.jpg
+    </div>
+  </section>
+
+
+  <div class="section-divider"></div>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <p class="section-label reveal">// 04 — Education</p>
+    <h2 class="section-title reveal">Academic Background</h2>
+    <div class="edu-grid">
+
+      <!-- Master of Mechatronics -->
+      <div class="edu-card reveal">
+        <div class="edu-left">
+          <div class="edu-logo-placeholder">
+            <svg viewBox="0 0 64 64" width="52" height="52" xmlns="http://www.w3.org/2000/svg">
+              <rect width="64" height="64" fill="white" />
+              <!-- Shield shape -->
+              <path d="M32 4 L56 14 L56 38 Q56 52 32 60 Q8 52 8 38 L8 14 Z" fill="#003087" />
+              <!-- Gold band -->
+              <path d="M8 26 L56 26 L56 30 L8 30 Z" fill="#F5A623" />
+              <!-- M letterform simplified -->
+              <text x="32" y="48" font-family="serif" font-size="16" font-weight="bold" fill="white"
+                text-anchor="middle">M</text>
+            </svg>
+          </div>
+          <p class="edu-institution">University of<br>Melbourne</p>
+          <p class="edu-date">Feb 2023 — Jul 2025</p>
+        </div>
+        <div class="edu-right">
+          <span class="edu-badge">Postgraduate</span>
+          <h3 class="edu-degree">Master of Mechatronics Engineering</h3>
+          <ul class="edu-bullets">
+            <li>Melbourne Global Scholars Award — funded international internship in Berlin</li>
+            <li>Capstone: Deployable Indoor Localisation System (C++, UWB, SPI/I2C)</li>
+            <li>Exchange semester at ETH Zürich (Faculty of Engineering Travel Scholarship)</li>
+          </ul>
         </div>
       </div>
-      <p class="project-tag">Robotics · ROS · ANT61</p>
-      <h3 class="project-title">CubeSat ROS Simulation Environment</h3>
-      <p class="project-desc">Developed ROS-based autonomous systems simulation for a CubeSat in Gazebo on a Linux/Docker/AWS stack. Wrote Python motion planning and control scripts for a robotic arm with Dynamixel motors. Represented ANT61 at AWS re:MARS Conference in the USA.</p>
-      <div class="project-stack">
-        <span class="tag">ROS</span><span class="tag">Gazebo</span><span class="tag">Python</span>
-        <span class="tag">Docker</span><span class="tag">AWS</span><span class="tag">Linux</span>
+
+      <!-- ETH Zürich Exchange -->
+      <div class="edu-card reveal">
+        <div class="edu-left">
+          <div class="edu-logo-placeholder">
+            <svg viewBox="0 0 64 64" width="52" height="52" xmlns="http://www.w3.org/2000/svg">
+              <rect width="64" height="64" fill="white" />
+              <!-- ETH wordmark simplified bars -->
+              <rect x="8" y="12" width="22" height="5" rx="1" fill="#1A1A1A" />
+              <rect x="8" y="22" width="16" height="5" rx="1" fill="#1A1A1A" />
+              <rect x="8" y="32" width="22" height="5" rx="1" fill="#1A1A1A" />
+              <!-- Z for Zürich star-like mark -->
+              <polygon points="34,44 54,44 54,49 38,49 54,58 34,58 34,53 50,53" fill="#E60028" />
+              <text x="32" y="20" font-family="Arial Black,sans-serif" font-size="11" font-weight="900" fill="#1A1A1A"
+                text-anchor="middle">ETH</text>
+              <text x="32" y="35" font-family="Arial Black,sans-serif" font-size="9" font-weight="700" fill="#E60028"
+                text-anchor="middle">ZÜRICH</text>
+            </svg>
+          </div>
+          <p class="edu-institution">ETH Zürich</p>
+          <p class="edu-date">Feb 2025 — Jul 2025</p>
+        </div>
+        <div class="edu-right">
+          <span class="edu-badge">Exchange — Master's</span>
+          <h3 class="edu-degree">Exchange Semester</h3>
+          <ul class="edu-bullets">
+            <li>3D Vision Project: Optimising WildGS-SLAM for robotic deployment (SLAM, perception, Python/C++)</li>
+            <li>Computational Models of Motion: Reinforcement learning for hexapod locomotion (MuJoCo, C++)</li>
+            <li>Faculty of Engineering &amp; IT Travel Scholarship recipient</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bachelor -->
+      <div class="edu-card reveal">
+        <div class="edu-left">
+          <div class="edu-logo-placeholder">
+            <svg viewBox="0 0 64 64" width="52" height="52" xmlns="http://www.w3.org/2000/svg">
+              <rect width="64" height="64" fill="white" />
+              <!-- Shield shape -->
+              <path d="M32 4 L56 14 L56 38 Q56 52 32 60 Q8 52 8 38 L8 14 Z" fill="#003087" />
+              <!-- Gold band -->
+              <path d="M8 26 L56 26 L56 30 L8 30 Z" fill="#F5A623" />
+              <!-- M letterform simplified -->
+              <text x="32" y="48" font-family="serif" font-size="16" font-weight="bold" fill="white"
+                text-anchor="middle">M</text>
+            </svg>
+          </div>
+          <p class="edu-institution">University of<br>Melbourne</p>
+          <p class="edu-date">Feb 2020 — Nov 2022</p>
+        </div>
+        <div class="edu-right">
+          <span class="edu-badge">Undergraduate</span>
+          <h3 class="edu-degree">Bachelor of Science — Mechatronics Engineering</h3>
+          <ul class="edu-bullets">
+            <li>Represented the University and ANT61 at Amazon's re:MARS 2022 Conference, USA</li>
+            <li>Active in Melbourne Space Program — space robotics and CubeSat development</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-inner">
+      <p class="section-label reveal" style="text-align:center">// 05 — Contact</p>
+      <h2 class="section-title reveal" style="text-align:center">Let's Build<br>Something.</h2>
+      <a href="mailto:marshallpoon@hotmail.com" class="contact-email reveal">marshallpoon@hotmail.com</a>
+      <div class="contact-links reveal">
+        <a href="https://linkedin.com/in/marshall-poon" target="_blank" class="btn btn-ghost">LinkedIn</a>
+        <a href="mailto:marshallpoon@hotmail.com" class="btn btn-primary">Get In Touch</a>
       </div>
     </div>
+  </section>
 
-  </div>
-</section>
+  <footer>
+    <p>© 2026 Marshall Poon — Built for GitHub Pages &nbsp;·&nbsp; marshallpoon.github.io</p>
+  </footer>
 
+  <script>
+    // Custom cursor
+    const dot = document.getElementById('cursorDot');
+    const ring = document.getElementById('cursorRing');
+    let mx = 0, my = 0, rx = 0, ry = 0;
 
-<div class="section-divider"></div>
-
-<!-- EDUCATION -->
-<section id="education">
-  <p class="section-label reveal">// 04 — Education</p>
-  <h2 class="section-title reveal">Academic Background</h2>
-  <div class="edu-grid">
-
-    <!-- Master of Mechatronics -->
-    <div class="edu-card reveal">
-      <div class="edu-left">
-        <div class="edu-logo-placeholder">
-        <svg viewBox="0 0 64 64" width="52" height="52" xmlns="http://www.w3.org/2000/svg">
-          <rect width="64" height="64" fill="white"/>
-          <!-- Shield shape -->
-          <path d="M32 4 L56 14 L56 38 Q56 52 32 60 Q8 52 8 38 L8 14 Z" fill="#003087"/>
-          <!-- Gold band -->
-          <path d="M8 26 L56 26 L56 30 L8 30 Z" fill="#F5A623"/>
-          <!-- M letterform simplified -->
-          <text x="32" y="48" font-family="serif" font-size="16" font-weight="bold" fill="white" text-anchor="middle">M</text>
-        </svg>
-      </div>
-        <p class="edu-institution">University of<br>Melbourne</p>
-        <p class="edu-date">Feb 2023 — Jul 2025</p>
-      </div>
-      <div class="edu-right">
-        <span class="edu-badge">Postgraduate</span>
-        <h3 class="edu-degree">Master of Mechatronics Engineering</h3>
-        <ul class="edu-bullets">
-          <li>Melbourne Global Scholars Award — funded international internship in Berlin</li>
-          <li>Capstone: Deployable Indoor Localisation System (C++, UWB, SPI/I2C)</li>
-          <li>Exchange semester at ETH Zürich (Faculty of Engineering Travel Scholarship)</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- ETH Zürich Exchange -->
-    <div class="edu-card reveal">
-      <div class="edu-left">
-        <div class="edu-logo-placeholder">
-        <svg viewBox="0 0 64 64" width="52" height="52" xmlns="http://www.w3.org/2000/svg">
-          <rect width="64" height="64" fill="white"/>
-          <!-- ETH wordmark simplified bars -->
-          <rect x="8" y="12" width="22" height="5" rx="1" fill="#1A1A1A"/>
-          <rect x="8" y="22" width="16" height="5" rx="1" fill="#1A1A1A"/>
-          <rect x="8" y="32" width="22" height="5" rx="1" fill="#1A1A1A"/>
-          <!-- Z for Zürich star-like mark -->
-          <polygon points="34,44 54,44 54,49 38,49 54,58 34,58 34,53 50,53" fill="#E60028"/>
-          <text x="32" y="20" font-family="Arial Black,sans-serif" font-size="11" font-weight="900" fill="#1A1A1A" text-anchor="middle">ETH</text>
-          <text x="32" y="35" font-family="Arial Black,sans-serif" font-size="9" font-weight="700" fill="#E60028" text-anchor="middle">ZÜRICH</text>
-        </svg>
-      </div>
-        <p class="edu-institution">ETH Zürich</p>
-        <p class="edu-date">Feb 2025 — Jul 2025</p>
-      </div>
-      <div class="edu-right">
-        <span class="edu-badge">Exchange — Master's</span>
-        <h3 class="edu-degree">Exchange Semester</h3>
-        <ul class="edu-bullets">
-          <li>3D Vision Project: Optimising WildGS-SLAM for robotic deployment (SLAM, perception, Python/C++)</li>
-          <li>Computational Models of Motion: Reinforcement learning for hexapod locomotion (MuJoCo, C++)</li>
-          <li>Faculty of Engineering &amp; IT Travel Scholarship recipient</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Bachelor -->
-    <div class="edu-card reveal">
-      <div class="edu-left">
-        <div class="edu-logo-placeholder">
-        <svg viewBox="0 0 64 64" width="52" height="52" xmlns="http://www.w3.org/2000/svg">
-          <rect width="64" height="64" fill="white"/>
-          <!-- Shield shape -->
-          <path d="M32 4 L56 14 L56 38 Q56 52 32 60 Q8 52 8 38 L8 14 Z" fill="#003087"/>
-          <!-- Gold band -->
-          <path d="M8 26 L56 26 L56 30 L8 30 Z" fill="#F5A623"/>
-          <!-- M letterform simplified -->
-          <text x="32" y="48" font-family="serif" font-size="16" font-weight="bold" fill="white" text-anchor="middle">M</text>
-        </svg>
-      </div>
-        <p class="edu-institution">University of<br>Melbourne</p>
-        <p class="edu-date">Feb 2020 — Nov 2022</p>
-      </div>
-      <div class="edu-right">
-        <span class="edu-badge">Undergraduate</span>
-        <h3 class="edu-degree">Bachelor of Science — Mechatronics Engineering</h3>
-        <ul class="edu-bullets">
-          <li>Represented the University and ANT61 at Amazon's re:MARS 2022 Conference, USA</li>
-          <li>Active in Melbourne Space Program — space robotics and CubeSat development</li>
-        </ul>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<div class="section-divider"></div>
-
-<!-- CONTACT -->
-<section id="contact">
-  <div class="contact-inner">
-    <p class="section-label reveal" style="text-align:center">// 05 — Contact</p>
-    <h2 class="section-title reveal" style="text-align:center">Let's Build<br>Something.</h2>
-    <a href="mailto:marshallpoon@hotmail.com" class="contact-email reveal">marshallpoon@hotmail.com</a>
-    <div class="contact-links reveal">
-      <a href="https://linkedin.com/in/marshall-poon" target="_blank" class="btn btn-ghost">LinkedIn</a>
-      <a href="mailto:marshallpoon@hotmail.com" class="btn btn-primary">Get In Touch</a>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <p>© 2026 Marshall Poon — Built for GitHub Pages &nbsp;·&nbsp; marshallpoon.github.io</p>
-</footer>
-
-<script>
-  // Custom cursor
-  const dot  = document.getElementById('cursorDot');
-  const ring = document.getElementById('cursorRing');
-  let mx = 0, my = 0, rx = 0, ry = 0;
-
-  document.addEventListener('mousemove', e => {
-    mx = e.clientX; my = e.clientY;
-    dot.style.left  = mx - 3 + 'px';
-    dot.style.top   = my - 3 + 'px';
-  });
-
-  (function animRing() {
-    rx += (mx - rx - 16) * 0.12;
-    ry += (my - ry - 16) * 0.12;
-    ring.style.left = rx + 'px';
-    ring.style.top  = ry + 'px';
-    requestAnimationFrame(animRing);
-  })();
-
-  document.querySelectorAll('a, button').forEach(el => {
-    el.addEventListener('mouseenter', () => {
-      ring.style.width = '48px'; ring.style.height = '48px';
+    document.addEventListener('mousemove', e => {
+      mx = e.clientX; my = e.clientY;
+      dot.style.left = mx - 3 + 'px';
+      dot.style.top = my - 3 + 'px';
     });
-    el.addEventListener('mouseleave', () => {
-      ring.style.width = '32px'; ring.style.height = '32px';
+
+    (function animRing() {
+      rx += (mx - rx - 16) * 0.12;
+      ry += (my - ry - 16) * 0.12;
+      ring.style.left = rx + 'px';
+      ring.style.top = ry + 'px';
+      requestAnimationFrame(animRing);
+    })();
+
+    document.querySelectorAll('a, button').forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        ring.style.width = '48px'; ring.style.height = '48px';
+      });
+      el.addEventListener('mouseleave', () => {
+        ring.style.width = '32px'; ring.style.height = '32px';
+      });
     });
-  });
 
-  // Scroll reveal
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => entry.target.classList.add('visible'), i * 60);
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1 });
+    // Scroll reveal
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 60);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
 
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-  // Skill bars animate on reveal
-  const skillObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.querySelectorAll('.skill-fill').forEach(fill => {
-          fill.style.width = fill.dataset.width + '%';
-        });
-        skillObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.3 });
+    // Skill bars animate on reveal
+    const skillObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.querySelectorAll('.skill-fill').forEach(fill => {
+            fill.style.width = fill.dataset.width + '%';
+          });
+          skillObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
 
-  document.querySelectorAll('.about-skills').forEach(el => skillObserver.observe(el));
-
-  // Lightbox
-  function openLightbox(el) {
-    const img = el.querySelector('img');
-    if (!img) return;
-    document.getElementById('lightboxImg').src = img.src;
-    document.getElementById('lightbox').classList.add('active');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeLightbox() {
-    document.getElementById('lightbox').classList.remove('active');
-    document.body.style.overflow = '';
-  }
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
-
-  // Folder structure hint in console
-  console.log('%c📁 Marshall Poon Portfolio', 'font-size:14px;font-weight:bold;color:#00C2FF');
-  console.log('%cAdd files to these paths to populate the site:', 'color:#6B849E');
-  console.log('%cassets/images/  → project images & gallery photos', 'color:#00FF9D');
-  console.log('%cassets/papers/  → PDF reports & documents', 'color:#00FF9D');
-
-
-  // Active nav tab on scroll
-  const sections = ['about', 'projects', 'education', 'contact'];
-  const navLinks = document.querySelectorAll('.nav-links a[data-section]');
-
-  function updateActiveLink() {
-    let current = sections[0];
-    sections.forEach(id => {
-      const el = document.getElementById(id);
-      if (el && el.getBoundingClientRect().top <= 80) current = id;
-    });
-    navLinks.forEach(a => {
-      a.classList.toggle('active', a.dataset.section === current);
-    });
-  }
-
-  window.addEventListener('scroll', updateActiveLink, { passive: true });
-  updateActiveLink();
-
-  // Mobile menu toggle
-  function toggleMenu() {
-    document.getElementById('mobileMenu').classList.toggle('open');
-  }
+    document.querySelectorAll('.about-skills').forEach(el => skillObserver.observe(el));
 
     // Lightbox
-  function openLightbox(el) {
-    const img = el.querySelector('img');
-    if (!img) return;
-    document.getElementById('lightboxImg').src = img.src;
-    document.getElementById('lightbox').classList.add('active');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeLightbox() {
-    document.getElementById('lightbox').classList.remove('active');
-    document.body.style.overflow = '';
-  }
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+    function openLightbox(el) {
+      const img = el.querySelector('img');
+      if (!img) return;
+      document.getElementById('lightboxImg').src = img.src;
+      document.getElementById('lightbox').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
 
-  // Folder structure hint in console
-  console.log('%c📁 Marshall Poon Portfolio', 'font-size:14px;font-weight:bold;color:#00C2FF');
-  console.log('%cAdd files to these paths to populate the site:', 'color:#6B849E');
-  console.log('%cassets/images/  → project images & gallery photos', 'color:#00FF9D');
-  console.log('%cassets/papers/  → PDF reports & documents', 'color:#00FF9D');
-
-
-  const sections = ['about', 'projects', 'education', 'contact'];
+    // Folder structure hint in console
+    console.log('%c📁 Marshall Poon Portfolio', 'font-size:14px;font-weight:bold;color:#00C2FF');
+    console.log('%cAdd files to these paths to populate the site:', 'color:#6B849E');
+    console.log('%cassets/images/  → project images & gallery photos', 'color:#00FF9D');
+    console.log('%cassets/papers/  → PDF reports & documents', 'color:#00FF9D');
 
 
-</script>
+    // Active nav tab on scroll
+    const sections = ['about', 'projects', 'education', 'contact'];
+    const navLinks = document.querySelectorAll('.nav-links a[data-section]');
+
+    function updateActiveLink() {
+      let current = sections[0];
+      sections.forEach(id => {
+        const el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top <= 80) current = id;
+      });
+      navLinks.forEach(a => {
+        a.classList.toggle('active', a.dataset.section === current);
+      });
+    }
+
+    window.addEventListener('scroll', updateActiveLink, { passive: true });
+    updateActiveLink();
+
+    // Mobile menu toggle
+    function toggleMenu() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+    }
+
+    // Lightbox
+    function openLightbox(el) {
+      const img = el.querySelector('img');
+      if (!img) return;
+      document.getElementById('lightboxImg').src = img.src;
+      document.getElementById('lightbox').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+    // Folder structure hint in console
+    console.log('%c📁 Marshall Poon Portfolio', 'font-size:14px;font-weight:bold;color:#00C2FF');
+    console.log('%cAdd files to these paths to populate the site:', 'color:#6B849E');
+    console.log('%cassets/images/  → project images & gallery photos', 'color:#00FF9D');
+    console.log('%cassets/papers/  → PDF reports & documents', 'color:#00FF9D');
+
+
+    const sections = ['about', 'projects', 'education', 'contact'];
+
+
+  </script>
 </body>
+
 </html>
