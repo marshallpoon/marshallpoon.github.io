@@ -192,11 +192,7 @@
       <!-- PROJECT 1: WildGS-SLAM — FEATURED FULL WIDTH -->
       <div class="project-card project-card--featured reveal">
         <div class="project-image project-image--tall">
-          <img src="assets/images/dynamic_removal.png" alt="WildGS-SLAM real-time deployment results"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-          <div class="project-image-placeholder" style="display:none">
-            <span>📁</span> assets/images/dynamic_removal.png
-          </div>
+          <img src="assets/images/dynamic_removal.png" alt="WildGS-SLAM real-time deployment results">
         </div>
         <div class="project-card__body">
           <div class="project-card__meta">
@@ -229,6 +225,16 @@
               </svg>
               View Code
             </a>
+            <button onclick="togglePDF()" class="project-link project-link--pdf" id="pdfToggleBtn">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2" />
+                <line x1="9" y1="9" x2="15" y2="9" />
+                <line x1="9" y1="12" x2="15" y2="12" />
+                <line x1="9" y1="15" x2="12" y2="15" />
+              </svg>
+              Preview Paper
+            </button>
           </div>
           <div class="project-stack">
             <span class="tag">Python</span>
@@ -241,6 +247,20 @@
             <span class="tag">Git</span>
           </div>
         </div>
+      </div>
+
+      <!-- PDF VIEWER (toggled) -->
+      <div class="pdf-viewer-wrap reveal" id="pdfViewer" style="display:none; grid-column: 1 / -1;">
+        <div class="pdf-viewer-header">
+          <span>WildGS-SLAM — Research Paper</span>
+          <button onclick="togglePDF()" class="pdf-close">✕ Close</button>
+        </div>
+        <iframe src="assets/papers/12060_WildGS_SLAM_Monocular_Ga.pdf" class="pdf-iframe"
+          title="WildGS-SLAM Research Paper">
+          <p>Your browser doesn't support PDF preview.
+            <a href="assets/papers/12060_WildGS_SLAM_Monocular_Ga.pdf" target="_blank">Download the PDF</a>
+          </p>
+        </iframe>
       </div>
       <!-- PROJECT 2: Hexapod RL -->
       <div class="project-card reveal">
@@ -466,6 +486,15 @@
   </footer>
 
   <script>
+    // Toggle PDF function
+    function togglePDF() {
+      const viewer = document.getElementById('pdfViewer');
+      const btn = document.getElementById('pdfToggleBtn');
+      const isHidden = viewer.style.display === 'none';
+      viewer.style.display = isHidden ? 'block' : 'none';
+      btn.style.background = isHidden ? 'rgba(192,105,74,0.15)' : '';
+      if (isHidden) viewer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
     // Custom cursor
     const dot = document.getElementById('cursorDot');
     const ring = document.getElementById('cursorRing');
