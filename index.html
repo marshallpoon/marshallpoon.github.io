@@ -1192,6 +1192,10 @@
       min-height: 320px !important;
     }
 
+    .project-card--featured .project-image img {
+      object-fit: contain;
+    }
+
     .project-card__body {
       padding: 2rem 2.2rem;
       display: flex;
@@ -1361,9 +1365,8 @@
         Marshall<br><span>Poon</span>
       </h1>
       <p class="hero-desc">
-        Master of Mechatronics Engineering from the University of Melbourne and ETH Zürich.
-        Building autonomous systems, SLAM pipelines, and defence-grade engineering solutions
-        across Melbourne, Berlin, and Zürich.
+        Master of Mechatronics Engineering from the University of Melbourne and ETH Zürich, with a focus on robotics,
+        aerospace and control systems.
       </p>
       <div class="hero-cta">
         <a href="#projects" class="btn btn-primary">View Projects</a>
@@ -1391,10 +1394,10 @@
 
   <!-- ABOUT -->
   <section id="about">
-    <p class="section-label reveal">// 01 — About</p>
-    <h2 class="section-title reveal">Engineer. Researcher.<br>Builder.</h2>
+    <p class="section-label reveal visible">// 01 — About</p>
+    <h2 class="section-title reveal visible">Mechatronics Engineer</h2>
     <div class="about-grid">
-      <div class="about-text reveal">
+      <div class="about-text reveal visible">
         <p>I'm a Mechatronics Engineer with a Master's from the <strong>University of Melbourne</strong> and a research
           semester at <strong>ETH Zürich</strong>, where I worked on SLAM optimisation and reinforcement learning for
           robotic locomotion.</p>
@@ -1407,64 +1410,25 @@
         <p>Australian citizen. Eligible for NV2 security clearance. Open to defence, robotics, and space opportunities
           globally.</p>
       </div>
-      <div class="about-skills reveal">
-        <div class="skill-row">
-          <div class="skill-header"><span class="skill-name">C++ / Embedded Systems</span><span
-              class="skill-pct">85%</span></div>
-          <div class="skill-bar">
-            <div class="skill-fill" data-width="85"></div>
-          </div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-header"><span class="skill-name">Python / ROS2</span><span class="skill-pct">90%</span>
-          </div>
-          <div class="skill-bar">
-            <div class="skill-fill" data-width="90"></div>
-          </div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-header"><span class="skill-name">SLAM / Perception</span><span class="skill-pct">80%</span>
-          </div>
-          <div class="skill-bar">
-            <div class="skill-fill" data-width="80"></div>
-          </div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-header"><span class="skill-name">Sensor Fusion / Control</span><span
-              class="skill-pct">85%</span></div>
-          <div class="skill-bar">
-            <div class="skill-fill" data-width="85"></div>
-          </div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-header"><span class="skill-name">Gazebo / MuJoCo Simulation</span><span
-              class="skill-pct">80%</span></div>
-          <div class="skill-bar">
-            <div class="skill-fill" data-width="80"></div>
-          </div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-header"><span class="skill-name">Linux / Docker / CI/CD</span><span
-              class="skill-pct">88%</span></div>
-          <div class="skill-bar">
-            <div class="skill-fill" data-width="88"></div>
-          </div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-header"><span class="skill-name">MATLAB/Simulink</span><span class="skill-pct">78%</span>
-          </div>
-          <div class="skill-bar">
-            <div class="skill-fill" data-width="78"></div>
-          </div>
-        </div>
-        <div class="skill-row">
-          <div class="skill-header"><span class="skill-name">SolidWorks / AutoCAD</span><span
-              class="skill-pct">75%</span></div>
-          <div class="skill-bar">
-            <div class="skill-fill" data-width="75"></div>
-          </div>
+      <div class="about-skills reveal visible">
+        <h3 style="font-size: 0.95rem; font-weight: 600; margin-bottom: 1rem; color: var(--text);">Skills
+        </h3>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.7rem;">
+          <span class="tag">C++ / Embedded Systems</span>
+          <span class="tag">Python / ROS2</span>
+          <span class="tag">SLAM / Perception</span>
+          <span class="tag">Sensor Fusion</span>
+          <span class="tag">Control Systems</span>
+          <span class="tag">Gazebo Simulation</span>
+          <span class="tag">MuJoCo</span>
+          <span class="tag">Linux / Docker</span>
+          <span class="tag">CI/CD Pipelines</span>
+          <span class="tag">MATLAB/Simulink</span>
+          <span class="tag">SolidWorks</span>
+          <span class="tag">AutoCAD</span>
         </div>
       </div>
+    </div>
     </div>
   </section>
 
@@ -1500,182 +1464,71 @@
       ├── images/
       │   └── wildgs-slam-results.jpg    ← your results image (any size, crops to 16:10)
       └── papers/
-          └── wildgs-slam-paper.pdf      ← your research paper PDF
+          └── wildgs-paper.pdf      ← your research paper PDF
     -->
+      <!-- PROJECT 1 Wild-GS SLAM -->
+      <div class="project-card project-card--featured reveal visible">
 
-      <!-- PROJECTS -->
-      <section id="projects">
+        <!-- LEFT SIDE -->
+        <div class="project-image project-image--tall">
 
-        <p class="section-label reveal">// 02 — Projects</p>
-        <h2 class="section-title reveal">Selected Work</h2>
+          <img src="assets/images/dynamic_removal.png" alt="WildGS-SLAM Results"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
 
-        <div class="project-card project-card--featured reveal">
-
-          <!-- LEFT SIDE -->
-          <div class="project-image project-image--tall">
-
-            <img src="assets/images/dynamic_removal.png" alt="WildGS-SLAM Results"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-
-            <div class="project-image-placeholder" style="display:none">
-              <span>📁</span>
-              Missing Image
-            </div>
-
+          <div class="project-image-placeholder" style="display:none">
+            <span>📁</span>
+            Missing Image
           </div>
 
-          <!-- RIGHT SIDE -->
-          <div class="project-card__body">
+        </div>
 
-            <div class="project-card__meta">
-              <p class="project-tag">
-                SLAM · Computer Vision · ETH Zürich 2025
-              </p>
+        <!-- RIGHT SIDE -->
+        <div class="project-card__body">
 
-              <span class="project-badge">
-                Research Project
-              </span>
-            </div>
-
-            <h3 class="project-title">
-              Real-time Deployment of WildGS-SLAM
-            </h3>
-
-            <p class="project-desc">
-              WildGS-SLAM is a monocular RGB SLAM system designed for
-              dynamic environments using uncertainty-aware mapping
-              and Gaussian Splatting techniques.
-
-              This project focused on profiling bottlenecks,
-              restructuring the pipeline, and optimising runtime
-              performance to achieve real-time deployment.
+          <div class="project-card__meta">
+            <p class="project-tag">
+              SLAM · Computer Vision · ETH Zürich 2025
             </p>
 
-            <div class="project-stack">
-              <span class="tag">Python</span>
-              <span class="tag">C++</span>
-              <span class="tag">SLAM</span>
-              <span class="tag">Gaussian Splatting</span>
-            </div>
+            <span class="project-badge">
+              Research Project
+            </span>
+          </div>
 
-            <!-- EMBEDDED PDF -->
-            <div class="embedded-pdf-viewer">
+          <h3 class="project-title">
+            Real-time Deployment of WildGS-SLAM
+          </h3>
 
-              <iframe src="assets/papers/wildgs-slam.pdf#toolbar=1&navpanes=0&scrollbar=1" class="pdf-iframe">
-              </iframe>
+          <p class="project-desc">
+            WildGS-SLAM is a monocular RGB SLAM system designed for
+            dynamic environments using uncertainty-aware mapping
+            and Gaussian Splatting techniques.
 
-            </div>
+            This project focused on profiling bottlenecks,
+            restructuring the pipeline, and optimising runtime
+            performance to achieve real-time deployment.
+          </p>
+
+          <div class="project-stack">
+            <span class="tag">Python</span>
+            <span class="tag">C++</span>
+            <span class="tag">SLAM</span>
+            <span class="tag">Gaussian Splatting</span>
+          </div>
+
+          <!-- EMBEDDED PDF -->
+          <div class="embedded-pdf-viewer">
+
+            <object data="assets/papers/wildgs_paper.pdf#toolbar=1&navpanes=0&scrollbar=1" type="application/pdf"
+              class="pdf-iframe">
+              <p>Unable to display PDF file. <a href="assets/papers/wildgs_paper.pdf" target="_blank">Download</a>
+                instead.</p>
+            </object>
 
           </div>
 
         </div>
 
-      </section>
-
-      <!-- PROJECT 2: Hexapod RL -->
-      <div class="project-card reveal">
-        <div class="project-image">
-          <img src="assets/images/hexapod-sim.jpg" alt="Hexapod robot MuJoCo reinforcement learning simulation"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-          <div class="project-image-placeholder" style="display:none">
-            <span>📁</span> assets/images/hexapod-sim.jpg
-          </div>
-        </div>
-        <p class="project-tag">RL · Motion Planning · ETH Zürich</p>
-        <h3 class="project-title">Hexapod RL Locomotion Controller</h3>
-        <p class="project-desc">Implemented reinforcement learning-based motion planning for a hexapod robot in
-          MuJoCo.
-          Developed reward functions, tuned physics parameters for sim-to-real transfer, and achieved stable
-          locomotion
-          policies under randomised terrain and perturbation conditions.</p>
-        <div class="project-stack">
-          <span class="tag">Python</span><span class="tag">C++</span><span class="tag">MuJoCo</span>
-          <span class="tag">Reinforcement Learning</span><span class="tag">Motion Planning</span>
-        </div>
-      </div>
-
-      <!-- PROJECT 3: UWB Capstone -->
-      <div class="project-card reveal">
-        <div class="project-image">
-          <img src="assets/images/uwb-localisation.jpg" alt="UWB ultra-wideband indoor localisation system hardware"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-          <div class="project-image-placeholder" style="display:none">
-            <span>📁</span> assets/images/uwb-localisation.jpg
-          </div>
-        </div>
-        <p class="project-tag">Capstone · Embedded · UoM</p>
-        <h3 class="project-title">Deployable Indoor Localisation System</h3>
-        <p class="project-desc">Designed and built a real-time indoor positioning system using Ultra-Wideband
-          ranging.
-          Implemented a Time Division Multiple Access protocol in C++ firmware for multi-node coordination, running
-          on
-          embedded hardware over SPI and I2C with sub-10cm accuracy.</p>
-        <div class="project-stack">
-          <span class="tag">C++</span><span class="tag">UWB</span><span class="tag">SPI</span>
-          <span class="tag">I2C</span><span class="tag">TDMA</span><span class="tag">Embedded</span>
-        </div>
-      </div>
-
-      <!-- PROJECT 4: ACRUX-2 -->
-      <div class="project-card reveal">
-        <div class="project-image">
-          <img src="assets/images/acrux2-adcs.jpg" alt="ACRUX-2 CubeSat reaction wheel and ADCS hardware"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-          <div class="project-image-placeholder" style="display:none">
-            <span>📁</span> assets/images/acrux2-adcs.jpg
-          </div>
-        </div>
-        <p class="project-tag">CubeSat · ADCS · Melbourne Space Program</p>
-        <h3 class="project-title">ACRUX-2 Attitude Control System</h3>
-        <p class="project-desc">Engineering Co-Lead for ADCS on the ACRUX-2 CubeSat. Designed reaction wheel
-          hardware,
-          developed attitude control algorithms with magnetorquer/magnetometer sensor fusion, and took end-to-end
-          ownership from requirements through hardware integration and validation.</p>
-        <div class="project-stack">
-          <span class="tag">Python</span><span class="tag">C++</span><span class="tag">MATLAB/Simulink</span>
-          <span class="tag">Sensor Fusion</span><span class="tag">Systems Engineering</span>
-        </div>
-      </div>
-
-      <!-- PROJECT 5: Space Lab R&D -->
-      <div class="project-card reveal">
-        <div class="project-image">
-          <img src="assets/images/space-lab-rd.jpg" alt="Melbourne Space Laboratory instrumentation R&D"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-          <div class="project-image-placeholder" style="display:none">
-            <span>📁</span> assets/images/space-lab-rd.jpg
-          </div>
-        </div>
-        <p class="project-tag">R&amp;D · Export-Controlled · Space Lab</p>
-        <h3 class="project-title">Autonomous Instrumentation Platform</h3>
-        <p class="project-desc">Led a confidential, export-controlled full-lifecycle R&D project at the Melbourne
-          Space
-          Laboratory. Developed 10 modular Python instrumentation libraries, implemented CI/CD pipelines, designed
-          communication protocols, and built a PostgreSQL database for large-volume test data on Linux.</p>
-        <div class="project-stack">
-          <span class="tag">Python</span><span class="tag">PostgreSQL</span><span class="tag">CI/CD</span>
-          <span class="tag">Linux</span><span class="tag">SCPI</span><span class="tag">Docker</span>
-        </div>
-      </div>
-
-      <!-- PROJECT 6: ANT61 ROS -->
-      <div class="project-card reveal">
-        <div class="project-image">
-          <img src="assets/images/ant61-ros-sim.jpg" alt="ANT61 ROS Gazebo CubeSat simulation environment"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-          <div class="project-image-placeholder" style="display:none">
-            <span>📁</span> assets/images/ant61-ros-sim.jpg
-          </div>
-        </div>
-        <p class="project-tag">Robotics · ROS · ANT61</p>
-        <h3 class="project-title">CubeSat ROS Simulation Environment</h3>
-        <p class="project-desc">Developed ROS-based autonomous systems simulation for a CubeSat in Gazebo on a
-          Linux/Docker/AWS stack. Wrote Python motion planning and control scripts for a robotic arm with Dynamixel
-          motors. Represented ANT61 at AWS re:MARS Conference in the USA.</p>
-        <div class="project-stack">
-          <span class="tag">ROS</span><span class="tag">Gazebo</span><span class="tag">Python</span>
-          <span class="tag">Docker</span><span class="tag">AWS</span><span class="tag">Linux</span>
-        </div>
       </div>
 
     </div>
@@ -1685,27 +1538,19 @@
 
   <!-- EDUCATION -->
   <section id="education">
-    <p class="section-label reveal">// 04 — Education</p>
-    <h2 class="section-title reveal">Academic Background</h2>
+    <p class="section-label reveal visible">// 04 — Education</p>
+    <h2 class="section-title reveal visible">Academic Background</h2>
     <div class="edu-grid">
 
       <!-- Master of Mechatronics -->
-      <div class="edu-card reveal">
+      <div class="edu-card reveal visible">
         <div class="edu-left">
           <div class="edu-logo-placeholder">
-            <svg viewBox="0 0 64 64" width="52" height="52" xmlns="http://www.w3.org/2000/svg">
-              <rect width="64" height="64" fill="white" />
-              <!-- Shield shape -->
-              <path d="M32 4 L56 14 L56 38 Q56 52 32 60 Q8 52 8 38 L8 14 Z" fill="#003087" />
-              <!-- Gold band -->
-              <path d="M8 26 L56 26 L56 30 L8 30 Z" fill="#F5A623" />
-              <!-- M letterform simplified -->
-              <text x="32" y="48" font-family="serif" font-size="16" font-weight="bold" fill="white"
-                text-anchor="middle">M</text>
-            </svg>
+            <img src="assets/images/unimelb.jpg" alt="University of Melbourne"
+              style="width: 70px; height: 70px; object-fit: contain;">
           </div>
           <p class="edu-institution">University of<br>Melbourne</p>
-          <p class="edu-date">Feb 2023 — Jul 2025</p>
+          <!-- <p class="edu-date">Feb 2023 — Jul 2025</p> -->
         </div>
         <div class="edu-right">
           <span class="edu-badge">Postgraduate</span>
@@ -1719,25 +1564,13 @@
       </div>
 
       <!-- ETH Zürich Exchange -->
-      <div class="edu-card reveal">
+      <div class="edu-card reveal visible">
         <div class="edu-left">
           <div class="edu-logo-placeholder">
-            <svg viewBox="0 0 64 64" width="52" height="52" xmlns="http://www.w3.org/2000/svg">
-              <rect width="64" height="64" fill="white" />
-              <!-- ETH wordmark simplified bars -->
-              <rect x="8" y="12" width="22" height="5" rx="1" fill="#1A1A1A" />
-              <rect x="8" y="22" width="16" height="5" rx="1" fill="#1A1A1A" />
-              <rect x="8" y="32" width="22" height="5" rx="1" fill="#1A1A1A" />
-              <!-- Z for Zürich star-like mark -->
-              <polygon points="34,44 54,44 54,49 38,49 54,58 34,58 34,53 50,53" fill="#E60028" />
-              <text x="32" y="20" font-family="Arial Black,sans-serif" font-size="11" font-weight="900" fill="#1A1A1A"
-                text-anchor="middle">ETH</text>
-              <text x="32" y="35" font-family="Arial Black,sans-serif" font-size="9" font-weight="700" fill="#E60028"
-                text-anchor="middle">ZÜRICH</text>
-            </svg>
+            <img src="assets/images/eth.jpg" alt="ETH Zurich" style="width: 100px; height: 70px; object-fit: contain;">
           </div>
           <p class="edu-institution">ETH Zürich</p>
-          <p class="edu-date">Feb 2025 — Jul 2025</p>
+          <!-- <p class="edu-date">Feb 2025 — Jul 2025</p> -->
         </div>
         <div class="edu-right">
           <span class="edu-badge">Exchange — Master's</span>
@@ -1751,22 +1584,14 @@
       </div>
 
       <!-- Bachelor -->
-      <div class="edu-card reveal">
+      <div class="edu-card reveal visible">
         <div class="edu-left">
           <div class="edu-logo-placeholder">
-            <svg viewBox="0 0 64 64" width="52" height="52" xmlns="http://www.w3.org/2000/svg">
-              <rect width="64" height="64" fill="white" />
-              <!-- Shield shape -->
-              <path d="M32 4 L56 14 L56 38 Q56 52 32 60 Q8 52 8 38 L8 14 Z" fill="#003087" />
-              <!-- Gold band -->
-              <path d="M8 26 L56 26 L56 30 L8 30 Z" fill="#F5A623" />
-              <!-- M letterform simplified -->
-              <text x="32" y="48" font-family="serif" font-size="16" font-weight="bold" fill="white"
-                text-anchor="middle">M</text>
-            </svg>
+            <img src="assets/images/unimelb.jpg" alt="University of Melbourne"
+              style="width: 70px; height: 70px; object-fit: contain;">
           </div>
           <p class="edu-institution">University of<br>Melbourne</p>
-          <p class="edu-date">Feb 2020 — Nov 2022</p>
+          <!-- <p class="edu-date">Feb 2020 — Nov 2022</p> -->
         </div>
         <div class="edu-right">
           <span class="edu-badge">Undergraduate</span>
