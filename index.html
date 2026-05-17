@@ -121,7 +121,32 @@
   <!-- PROJECTS -->
   <section id="projects">
     <p class="section-label reveal visible">Projects</p>
-    <h2 class="section-title reveal">Selected Work</h2>
+    <!-- <h2 class="section-title reveal">Selected Work</h2> -->
+
+    <!-- PROJECT NAV -->
+    <div class="project-nav">
+      <a href="#proj-wildgs" class="project-nav-btn">
+        <span class="project-nav-num">01</span>
+        <span class="project-nav-info">
+          <span class="project-nav-title">WildGS-SLAM</span>
+          <span class="project-nav-sub">Real-time SLAM · ETH Zürich</span>
+        </span>
+      </a>
+      <a href="#proj-uwb" class="project-nav-btn">
+        <span class="project-nav-num">02</span>
+        <span class="project-nav-info">
+          <span class="project-nav-title">Deployable Indoor Localisation</span>
+          <span class="project-nav-sub">UWB Capstone · Embedded C++ · UniMelb</span>
+        </span>
+      </a>
+      <a href="#proj-hexapod" class="project-nav-btn">
+        <span class="project-nav-num">03</span>
+        <span class="project-nav-info">
+          <span class="project-nav-title">Hexapod RL</span>
+          <span class="project-nav-sub">Locomotion · MuJoCo · ETH Zürich</span>
+        </span>
+      </a>
+    </div>
     <!-- 
     PROJECT IMAGES — FILE STRUCTURE
     ================================
@@ -151,8 +176,7 @@
           └── wildgs-paper.pdf      ← your research paper PDF
     -->
       <!-- PROJECT 1 Wild-GS SLAM -->
-      <div class="project-card project-card--featured reveal visible">
-
+      <div id="proj-wildgs" class="project-card project-card--featured reveal visible">
         <!-- LEFT SIDE -->
         <div class="project-image project-image--tall">
 
@@ -216,7 +240,7 @@
       </div>
 
       <!-- PROJECT 2: UWB Capstone (converted to featured layout) -->
-      <div class="project-card project-card--featured reveal visible">
+      <div id="proj-uwb" class="project-card project-card--featured reveal visible">
 
         <!-- LEFT SIDE: image -->
         <div class="project-image project-image--tall">
@@ -267,7 +291,7 @@
       </div>
 
       <!-- PROJECT 3: Hexapod RL Locomotion -->
-      <div class="project-card project-card--featured reveal visible">
+      <div id="proj-hexapod" class="project-card project-card--featured reveal visible">
 
         <!-- LEFT: stacked looping videos -->
         <div class="project-image project-image--tall"
